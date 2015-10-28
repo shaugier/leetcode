@@ -2,16 +2,17 @@
 
 void main()
 {
-	vector<string> strs = { "ch", "changefor", "concentrate", "concern" };
+	vector<string> strs = { "ch", "changefor", "choncentrate", "choncern" };
 	string temp;
+	if (strs.size() == 0)
+		cout<<temp<<endl; //cout means  !! return !!
 	int shortest = (*strs.begin()).size();
 	for (vector<string>::iterator it = strs.begin(); it != strs.end();it++)
-	{
 		shortest = min((int)(*it).size(), shortest);
-	}
+	
 	int i = 0;
 	bool flag = false;
-	while (true)
+	while (i < shortest + 1)
 	{
 		for (int k = 0; k < strs.size()-1; k++)
 		{
@@ -21,18 +22,14 @@ void main()
 				break;
 			}
 		}
-		
-		if (flag)
-		{
-			temp = strs[0].substr(0, i);
+		temp = strs[0].substr(0, i++);
+		if (flag)		
 			break;
-		}
-		i++;
-
 	}
 	cout << temp << endl;
 
 
+	//find longest prefix not longest common prefix£¨here common is an important conception£©
 	/*vector<string> strs = { "something new", "something blue", "changefor", "concentrate", "concern" };
 	string temp;
 	for (int i = 0; i < strs.size(); i++)
