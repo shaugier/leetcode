@@ -2,7 +2,31 @@
 
 void main()
 {
-	vector<string> strs = { "ch", "changefor", "choncentrate", "choncern" };
+	
+
+	//Exercise 127. Word Ladder
+	unordered_set<string> wordList = { "hot", "dot", "dog", "lot", "log" };
+	for (auto var : wordList)
+		cout << var << " ";
+	cout << endl;
+	string beginWord = "hit", endWord = "cog";
+	wordList.emplace_hint(wordList.end(),"hit");
+	for (auto var : wordList)
+		cout << var << " ";
+	cout << endl;
+	vector<list<int>> nextStrings(wordList.size());
+	auto root = wordList.find("hit");
+	while (!wordList.empty())
+	{
+
+	}
+
+
+
+
+
+	//Exercise 14. find longest common prefix
+	/*vector<string> strs = { "ch", "changefor", "choncentrate", "choncern" };
 	string temp;
 	if (strs.size() == 0)
 		cout<<temp<<endl; //cout means  !! return !!
@@ -26,7 +50,7 @@ void main()
 		if (flag)		
 			break;
 	}
-	cout << temp << endl;
+	cout << temp << endl;*/
 
 
 	//find longest prefix not longest common prefix£¨here common is an important conception£©
