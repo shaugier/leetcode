@@ -2,10 +2,16 @@
 
 void main()
 {
-	
 
-	//Exercise 127. Word Ladder
-	unordered_set<string> wordList = { "hot", "dot", "dog", "lot", "log" };
+	//graph
+	//sort(v.begin(), v.end(), greater<int>());//default is less<int>()
+	myBitVec bVec((numeric_limits<int>::max)());
+
+
+
+	//Exercise 127. Word Ladder£¬ use graph to express the relation between words!
+	//undone!!!!!!
+	/*unordered_set<string> wordList = { "hot", "dot", "dog", "lot", "log" };
 	for (auto var : wordList)
 		cout << var << " ";
 	cout << endl;
@@ -19,7 +25,7 @@ void main()
 	while (!wordList.empty())
 	{
 
-	}
+	}*/
 
 
 
