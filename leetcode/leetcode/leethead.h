@@ -11,6 +11,7 @@
 #include<iterator>
 #include<unordered_set>
 #include<limits>
+#include<time.h>
 //#include<xstddef>
 #include<functional>
 using namespace std;
@@ -55,14 +56,19 @@ class myBitVec{
 public:
 	myBitVec(int max = 0) :int_len(max)
 	{
-		data = new int[1 + (int_len >> SHIFT)];
+		try{
+			data = new int[1 + (int_len >> SHIFT)];
+		}
+		catch (const bad_alloc& e){
+			exit(-1);
+		}
 		memset(data, 0, sizeof(int)*(1 + (int_len >> SHIFT)));
 	}
 	~myBitVec()
 	{
 		delete[] data;
 	}
-	void set(int i){ data[i >> SHIFT] |= (1 << (i&MASK)); }
+	void set(int i){ data[i >> SHIFT] |= (1 << (i&MASK)); }//here 1 left shift 32bit is larger than max<usigned int>
 	void clr(int i){ data[i >> SHIFT] &= ~(1 << (i&MASK)); }
 	bool test(int i){ if(data[i >> SHIFT] & (1 << (i&MASK)))
 		return true;

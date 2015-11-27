@@ -1,13 +1,36 @@
 #include"leethead.h"
-
+#define n 10000000
+#define realN 1000000
 void main()
 {
 
 	//graph
 	//sort(v.begin(), v.end(), greater<int>());//default is less<int>()
-	myBitVec bVec((numeric_limits<int>::max)());
-
-
+	myBitVec bVec(n);
+	vector<int> source(n), number(realN), answer;
+	for (int i = 0; i < n; i++)
+		source[i] = i;
+	srand((unsigned)time(NULL));
+	for (int i = 0; i < realN; i++)
+	{
+		int seed = rand() % (n - i);
+		number[i] = source[seed];
+		source[seed] = source[n - i - 1];
+	}
+	clock_t start1 = clock();
+	for (int i = 0; i < realN; i++)
+		bVec.set(number[i]);
+	
+	for (int i = 0; i < n; i++)
+	{
+		if (bVec.test(i))
+			answer.push_back(i);
+	}
+	clock_t end1 = clock();
+	cout << end1 - start1 << endl;
+	clock_t start2 = clock();
+	sort(number.begin(), number.end());
+	cout << clock() - start2 << endl;
 
 	//Exercise 127. Word Ladder£¬ use graph to express the relation between words!
 	//undone!!!!!!
