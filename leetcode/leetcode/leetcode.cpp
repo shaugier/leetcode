@@ -5,8 +5,22 @@ void main()
 {
 
 	//graph
+//	Node<int> *in = new Node<int>();
+	LinkList<int> ls;
+	for (int i = 0; i < 10; i++)
+	{
+		ls.ListInsert(i);
+	}
+	
+	
+
+
+
+
+
+	//Programming pearls Excercise 1.3-1.4
 	//sort(v.begin(), v.end(), greater<int>());//default is less<int>()
-	myBitVec bVec(n);
+	/*myBitVec bVec(n);
 	vector<int> source(n), number(realN), answer;
 	for (int i = 0; i < n; i++)
 		source[i] = i;
@@ -30,7 +44,7 @@ void main()
 	cout << end1 - start1 << endl;
 	clock_t start2 = clock();
 	sort(number.begin(), number.end());
-	cout << clock() - start2 << endl;
+	cout << clock() - start2 << endl;*/
 
 	//Exercise 127. Word Ladder£¬ use graph to express the relation between words!
 	//undone!!!!!!
