@@ -12,9 +12,46 @@
 #include<unordered_set>
 #include<limits>
 #include<time.h>
+#include<fstream>
 //#include<xstddef>
 #include<functional>
 using namespace std;
+
+
+
+string setSequence(string s)
+{
+	vector<int> v(26, 0);
+	string tempStr;
+	for each (char var in s)
+	{
+		v[var-'a']++;
+	}
+	for (int i = 0; i < 26; i++)
+	{
+		if (v[i] > 0)
+		{
+			tempStr.push_back((char)(i + 'a'));
+			if (v[i] > 1)
+				tempStr.push_back('v[i]');
+		}
+	}
+	return tempStr;
+}
+
+
+void reverse(string & s, size_t begins, size_t ends)
+{
+	while ( ends - begins > 2)
+	{
+		size_t temp = s[begins];
+		s[begins] = s[ends];
+		s[ends] = temp;
+		ends--;
+		begins++;
+	}
+}
+
 
 //LinkList
 
@@ -22,9 +59,9 @@ template<class T> class Node{
 public:
 	T val;
 	Node<T> *next;
-	Node<T>();
+	/*Node<T>();
 	Node<T>(T num):val(num){
-	}
+	}*/
 };
 template<class T> class LinkList{
 	Node<T> *head;
@@ -44,8 +81,8 @@ public:
 	}
 	bool ListEmpty(){
 		if (head)
-			return true;
-		else return false;
+			return false;
+		else return true;
 	}
 	size_t ListLength(){
 		return len;
@@ -55,6 +92,7 @@ public:
 		Node<T> *temp = head;
 		while (temp && cnt < i){
 			temp = temp->next;
+			cnt++;
 		}
 		if (!temp)
 			exit(-1);
@@ -96,7 +134,8 @@ public:
 	}
 
 	void ListInsert( T e){
-		Node<T>* p = new Node<T>(e);
+		Node<T>* p = new Node<T>();
+		p->val = e;
 		p->next = head;
 		head = p;
 		len++;
@@ -105,10 +144,12 @@ public:
 };
 
 template<class T> bool compare(T e, T i){
-	if (e>i)
+	if (e > i)
 		return true;
 	else return false;
 }
+
+
 
 /*class BitVec{
 	enum{BITSPRERWORD = 32, SHIFT = 5, MASK = 0x1F};

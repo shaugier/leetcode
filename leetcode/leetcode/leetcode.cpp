@@ -5,17 +5,66 @@ void main()
 {
 
 	//graph
-//	Node<int> *in = new Node<int>();
+
+	//Pearls Capture 2 question C
+	ifstream in("inputfile.txt");
+	string s;
+	multimap<string, string> multi;
+	while (in >> s)
+	{
+		string temp = s;
+		sort(s.begin(), s.end());
+		multi.insert(make_pair(s, temp));
+	}
+	vector<set<string>> vset(multi.size());
+	vector<set<string>>::iterator iter = vset.begin();
+	string priorkey = (*multi.begin()).first;
+	for each (pair<string,string> var in multi)
+	{
+		if (priorkey == var.first)
+			(*iter).insert(var.second);
+		else{
+			priorkey = var.first;
+			iter++;
+			(*iter).insert(var.second);
+		}
+	}
+	cout << endl;
+
+
+
+
+
+
+
+	//Pearls Capture 2 question B
+	/*string rotation = "abcdefghklijmn";
+	size_t position = 4;
+	reverse(rotation, 0, position - 1);
+	reverse(rotation, position, rotation.size() - 1);
+	reverse(rotation, 0, rotation.size() - 1);
+	cout << rotation << endl;*///the answer is "efghklijmnabcd"
+
+
+
+
+
+	//test my LinkList
+	/*Node<int> *in = new Node<int>();
 	LinkList<int> ls;
+	cout << ls.ListEmpty() << endl;
 	for (int i = 0; i < 10; i++)
 	{
 		ls.ListInsert(i);
 	}
+	ls.ListEmpty();
+	ls.ListLength();
+	ls.ListInsert(24);
+	ls.GetElem(4);
+	ls.LocateElem(8);
+	ls.PriorElem(9);
+	ls.NextElem(7);*/
 	
-	
-
-
-
 
 
 	//Programming pearls Excercise 1.3-1.4
