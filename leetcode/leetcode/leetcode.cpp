@@ -6,8 +6,42 @@ void main()
 
 	//graph
 
+
+	//Pearls Excercise 2.3 trick rotation-2
+	ifstream in("string1.txt");
+	string rotations;
+	in >> rotations;
+	cout << clock() << endl;
+	size_t positions = 13;
+	Exchange(rotations, 0, rotations.size(), positions);
+	cout << rotations << endl;
+	//trick rotation-1 and hands turnover rotation 
+	ifstream in("string1.txt");
+	string rotations;
+	in >> rotations;
+	cout << clock() << endl;
+	size_t positions = 31;
+	CircularL(rotations, positions);
+	size_t remain = rotations.size() % positions;
+	while (remain != 0)
+	{
+		string subString(rotations.end() - positions, rotations.end());
+		positions = positions - remain; 
+		remain = subString.size() % positions;
+		CircularL(subString, positions);	
+		flushEnd(rotations, subString);
+	}
+
+	positions = 31;
+	cout << clock() << endl; 
+	clock_t start2 = clock();
+	reverse(rotations, 0, positions - 1);
+	reverse(rotations, positions, rotations.size() - 1);
+	reverse(rotations, 0, rotations.size() - 1);
+	cout << clock() << endl;
+
 	//Pearls Capture 2 question C
-	ifstream in("inputfile.txt");
+	/*ifstream in("inputfile.txt");
 	string s;
 	multimap<string, string> multi;
 	while (in >> s)
@@ -29,7 +63,7 @@ void main()
 			(*iter).insert(var.second);
 		}
 	}
-	cout << endl;
+	cout << endl;*/
 
 
 
