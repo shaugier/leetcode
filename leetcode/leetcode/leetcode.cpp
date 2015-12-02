@@ -1,14 +1,48 @@
 #include"leethead.h"
 #define n 10000000
 #define realN 1000000
+extern int Mon[];
 void main()
 {
 
 	//graph
 
 
+	//Pearls Excercise 3.4
+
+	//calculate days between two date
+	/*myDate today = { 2016, 2, 23 };
+	myDate anotherday = { 2012, 2, 28 };
+	int days = YEAR*(today.tm_year - anotherday.tm_year-1) + CalcuYear(anotherday, today) + CalcuDays(anotherday,today);
+	cout << days << endl;*/
+	//show the weekday of a specific date
+	myDate Greenwich = { 1900, 1, 1 }; // Greenwich Mean Time (GMT) is Sunday. This can be a standard
+	myDate today = { 2015, 12, 2 };
+	cout << (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1 << endl;
+	//print calendar
+	!!!
+
+
+
+
+	//Pearls Excercise 3.3
+	/*ifstream in("upperletters.txt");
+	string s;
+	in >> s;
+	for (string::iterator it = s.begin(); it != s.end();it++)
+		printletter(*it);*/
+	
+
+
+
+	//Pearls Excercise 2.5 
+	/*if a is longer than c ,exchange c and a-left, move a-right & b & a-left ---> b & a-left & a-right*/
+
+
+
+
 	//Pearls Excercise 2.3 trick rotation-2
-	ifstream in("string1.txt");
+	/*ifstream in("string1.txt");
 	string rotations;
 	in >> rotations;
 	cout << clock() << endl;
@@ -38,7 +72,10 @@ void main()
 	reverse(rotations, 0, positions - 1);
 	reverse(rotations, positions, rotations.size() - 1);
 	reverse(rotations, 0, rotations.size() - 1);
-	cout << clock() << endl;
+	cout << clock() << endl;*/
+
+
+
 
 	//Pearls Capture 2 question C
 	/*ifstream in("inputfile.txt");

@@ -15,9 +15,102 @@
 #include<fstream>
 //#include<xstddef>
 #include<functional>
+#include<iomanip>
 
 #define WORDMAX 100
+#define LEN 12
+#define YEAR 365
 using namespace std;
+
+extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+
+struct myDate{
+	int tm_year;
+	int tm_mon;
+	int tm_mday;
+};
+
+
+bool isLeapYear(int year)
+{
+	if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0)
+		return true;
+	return false;
+}
+
+int CalcuYear(myDate former, myDate later)
+{
+	int cntLeap = 0;
+	for (int i = former.tm_year + 1; i < later.tm_year; i += 4)
+	{
+		if (isLeapYear(i))
+			cntLeap++;
+	}
+	return cntLeap;
+}
+
+
+int SumMon(int i)
+{
+	int sum = 0;
+	for (int j = 0; j < i-1; j++)
+		sum += Mon[j];	
+	return sum;
+}
+
+int CalcuDays(myDate former, myDate later)
+{
+	int forDays = YEAR - SumMon(former.tm_mon) - former.tm_mday;
+	int latDays = SumMon(later.tm_mon) + later.tm_mday;
+	if (isLeapYear(later.tm_year) && later.tm_mon > 2)
+		latDays++;
+	if (isLeapYear(former.tm_year) && former.tm_mon < 3)
+		forDays++;
+	return  forDays + latDays;
+}
+
+void ifPrintX(int k)
+{
+	while(k-->0)
+		cout << "X";
+}
+
+void printBlank(int k)
+{
+	while(k-->0)
+		cout << " ";
+}
+
+void formatprint(int a, int b, int c,int d, int e)
+{
+	printBlank(a);
+	ifPrintX(b);
+	printBlank(c);
+	ifPrintX(d);
+	printBlank(e);
+	cout << endl;
+}
+
+
+void printletter(char ch)
+{
+	switch (ch)
+	{
+	case 'I':for (int i = 0; i < 3; i++)
+		formatprint(0, 9, 0, 0, 0);
+	for (int i = 0; i < 6; i++)
+		formatprint(3, 3, 3, 0, 0);
+	for (int i = 0; i < 3; i++)
+		formatprint(0, 9, 0, 0, 0);break;
+	case 'L':for (int i = 0; i < 9; i++)
+		formatprint(0, 3, 6, 0, 0);
+		for (int i = 0; i < 3; i++)
+			formatprint(0, 9, 0, 0, 0); break;
+	default:break;
+	}
+	cout << endl;
+	cout << endl;
+}
 
 
 void Exchange(string& s, size_t p, size_t r, size_t pos)
