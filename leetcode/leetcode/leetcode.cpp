@@ -16,12 +16,30 @@ void main()
 	int days = YEAR*(today.tm_year - anotherday.tm_year-1) + CalcuYear(anotherday, today) + CalcuDays(anotherday,today);
 	cout << days << endl;*/
 	//show the weekday of a specific date
-	myDate Greenwich = { 1900, 1, 1 }; // Greenwich Mean Time (GMT) is Sunday. This can be a standard
+	/*myDate Greenwich = { 1900, 1, 1 }; // Greenwich Mean Time (GMT) is Sunday. This can be a standard
 	myDate today = { 2015, 12, 2 };
-	cout << (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1 << endl;
+	cout << (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1 << endl;*/
 	//print calendar
-	!!!
-
+	myDate today = { 2015, 12, 1 };
+	myDate Greenwich = { 1900, 1, 1 };
+	int dayofMonth = Mon[today.tm_mon - 1];
+	int weekofDay = (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1;
+	int deviation = weekofDay % 7;
+	if (isLeapYear(today.tm_year) && today.tm_mon == 2)
+		dayofMonth++;
+	cout << "    Sunday    Monday    Tuesday    Wednesday    Thursday    Friday    Saturday" << endl;
+	cout << "------------------------------------------------------------------------------" << endl;
+	cout.setf(ios::right);
+	//cout.width(10);
+	for (int j = 0; j < deviation;j++)
+		cout << setw(10) << " ";
+	for (int i = 1; i <= dayofMonth; i++)
+	{
+		cout << setw(10) << i;
+		if ((i + deviation) % 7 == 0)
+			cout << endl;
+	}
+	cout << endl;
 
 
 
