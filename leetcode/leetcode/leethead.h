@@ -24,6 +24,34 @@ using namespace std;
 
 extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+enum Trend {INCREASE, DECREASE, FLAT};
+
+
+void findExtreme(vector<int> arr, int& low, int& high)
+{
+	for (int i = 1; i < arr.size(); i++)
+	{
+		if (arr[i] < arr[low])
+			low = i;
+		if (arr[i] >= arr[high])
+			high = i;
+	}
+}
+
+
+Trend stock(vector<int> p, int i)
+{
+	if (i + 1 == p.size())
+		return FLAT;
+	if (p[i] > p[i + 1])
+		return DECREASE;
+	if (p[i] < p[i + 1])
+		return INCREASE;
+	return FLAT;
+}
+
+
+
 struct myDate{
 	int tm_year;
 	int tm_mon;

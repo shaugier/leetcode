@@ -7,6 +7,80 @@ void main()
 
 	//graph
 
+	//Best time to buy and sell stock 
+	vector<int> prices = { 7, 2, 4, 1 };
+	int profits = 0;
+	int maxi, mini;
+	maxi = mini = 0;
+	findExtreme(prices, mini, maxi);
+	if (mini < maxi)
+		cout << prices[maxi] - prices[mini];
+	//findMax
+	int tmaxi = mini;
+	for (int i = mini + 1; i < prices.size(); i++)
+	{
+		if (prices[i] > prices[tmaxi])
+			tmaxi = i;
+	}
+	profits = prices[tmaxi] - prices[mini];
+	//findMin
+	int tmini = maxi;
+	for (int i = 0; i < maxi; i++)
+	{
+		if (prices[i] < prices[tmini])
+			tmini = i;
+	}
+	int profits2 = prices[maxi] - prices[tmini];
+	//compare
+	cout << (profits>profits2 ? profits : profits2) << endl;
+
+	//Best time to buy and sell stock II
+	/*vector<int> prices = { 8, 5, 8, 5, 4, 3, 2, 1, 5, 2, 6 };
+	int profits = 0;
+	bool hold = false;
+	int holdingPrice = 0;
+	for (int i = 0; i < prices.size(); i++)
+	{
+		if (stock(prices, i) == INCREASE && !hold)
+		{//buy
+			holdingPrice = prices[i];
+			profits -= prices[i];
+			hold = true;
+		}
+		else if (stock(prices, i) == DECREASE && hold)
+		{//sell
+			profits += prices[i];
+			holdingPrice = 0;
+			hold = false;
+		}
+	}
+	if (hold)
+		profits += prices.back();
+	cout << profits << endl;
+	*/
+
+
+	//leetcode 3sum closet
+	/*vector<int> nums = { -3, -3, -5, 1, 56, 1, 6, 2, 4, 42, 11, -63 };
+	int target = 20;
+	sort(nums.begin(), nums.end());
+	int minus = abs(nums[1] + nums[2] + nums[3] - 20);
+	for (int i = 0; i < nums.size() - 2; i++)
+		for (int j = 1; j < nums.size() - 1; j++)
+			for (int k = 2; k < nums.size(); k++)
+			{
+				int temp = abs(nums[i] + nums[j] + nums[k] - target);
+				if (temp>minus)
+					cout<<nums[i] + nums[j] + nums[k];
+				if (temp < minus)
+					minus = temp;
+				
+			}*/
+
+
+
+
+
 
 	//Pearls Excercise 3.4
 
@@ -20,7 +94,7 @@ void main()
 	myDate today = { 2015, 12, 2 };
 	cout << (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1 << endl;*/
 	//print calendar
-	myDate today = { 2015, 12, 1 };
+	/*myDate today = { 2015, 12, 1 };
 	myDate Greenwich = { 1900, 1, 1 };
 	int dayofMonth = Mon[today.tm_mon - 1];
 	int weekofDay = (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1;
@@ -40,7 +114,7 @@ void main()
 			cout << endl;
 	}
 	cout << endl;
-
+	*/
 
 
 	//Pearls Excercise 3.3
