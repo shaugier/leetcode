@@ -12,7 +12,7 @@ void main()
 	vector<int> candidates = { 2, 3, 5, 10 };
 	int target = 20;
 	vector<vector<int>> solutions;
-	findTarget(solutions, candidates, 0, target);
+	solutions = findTarget2(candidates, 0, target);
 	cout << endl;
 
 

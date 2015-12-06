@@ -26,6 +26,36 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 enum Trend {INCREASE, DECREASE, FLAT};
 
+vector<vector<int>> findTarget2(vector<int> candi, size_t beginIndex, int target)
+{
+	vector<vector<int>> appendix;
+	for (size_t i = beginIndex; i < candi.size() && candi[i] <= target; i++)
+	{
+		int remain = target%candi[i];
+		if (remain == 0)
+		{
+			appendix.push_back(vector<int>(target / candi[i], candi[i]));
+			remain = candi[i];
+		}
+		for (int j = 1; j*candi[i] + remain < target; j++)
+		{
+			vector<vector<int>> appappendix = findTarget2(candi, i + 1, j*candi[i] + remain);
+			if (!appappendix.empty())
+			{
+				
+				for (int k = 0; k < appappendix.size(); k++)
+				{
+					vector<int> temp = vector<int>((target - remain) / candi[i] - j, candi[i]);
+					temp.insert(temp.end(), appappendix[k].begin(), appappendix[k].end());
+					appendix.push_back(temp);
+				}
+			}
+		}
+
+	}
+	return appendix;
+}
+
 vector<int> findTarget(vector<vector<int>>& solus, vector<int> candi, size_t beginIndex, int target)
 {
 	vector<int> appendix;
