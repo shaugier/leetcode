@@ -26,6 +26,35 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 enum Trend {INCREASE, DECREASE, FLAT};
 
+vector<int> findTarget(vector<vector<int>>& solus, vector<int> candi, size_t beginIndex, int target)
+{
+	vector<int> appendix;
+	for (size_t i = beginIndex; i < candi.size() && candi[i] <= target; i++)
+	{
+		int remain = target%candi[i];
+		if (remain == 0)
+		{
+			appendix = vector<int>(target / candi[i], candi[i]);
+			remain = candi[i];
+			if (target == 20)
+				solus.push_back(appendix);
+		}
+		
+		for (int j = 1; j*candi[i] + remain < target; j++)
+		{
+			vector<int> appappendix = findTarget(solus, candi, i + 1, j*candi[i] + remain);
+			if (!appappendix.empty())
+			{
+				appendix = vector<int>((target - remain) / candi[i] - j, candi[i]);
+				appendix.insert(appendix.end(), appappendix.begin(), appappendix.end());
+				if (target == 20)
+					solus.push_back(appendix);
+			}
+		}
+	}
+
+	return appendix;
+}
 
 int maxProfit(vector<int> price, int p, int r)
 {

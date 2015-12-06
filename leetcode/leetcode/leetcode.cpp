@@ -8,20 +8,12 @@ void main()
 	//graph
 
 	//Combination Sum
-	vector<int> candidates = { 2, 3, 6, 7 };
-	int target = 7;
+	//the algorithm has found out all solutions, but not record them all
+	vector<int> candidates = { 2, 3, 5, 10 };
+	int target = 20;
 	vector<vector<int>> solutions;
-	for (size_t i = 0; i < candidates.size(); i++)
-	{
-		for (int j = 1; j*candidates[i] < target; j++)
-		{
-			int temp = target - j*candidates[i];
-			if (temp >= candidates[i] && binary_search(candidates.begin() + i, candidates.end(), temp))
-			{
-				solutions.push_back({ candidates[i], temp })
-			}
-		}
-	}
+	findTarget(solutions, candidates, 0, target);
+	cout << endl;
 
 
 
