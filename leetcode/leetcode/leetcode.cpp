@@ -7,12 +7,114 @@ void main()
 
 	//graph
 
+	//Combination Sum
+	vector<int> candidates = { 2, 3, 6, 7 };
+	int target = 7;
+	vector<vector<int>> solutions;
+	for (size_t i = 0; i < candidates.size(); i++)
+	{
+		for (int j = 1; j*candidates[i] < target; j++)
+		{
+			int temp = target - j*candidates[i];
+			if (temp >= candidates[i] && binary_search(candidates.begin() + i, candidates.end(), temp))
+			{
+				solutions.push_back({ candidates[i], temp })
+			}
+		}
+	}
+
+
+
 	//Best time to buy and sell stock 
-	vector<int> prices = { 7, 2, 4, 1 };
+	//ACCEPT !!!!
+	/*vector<int> prices = { 10000, 9999, 9998, 9997, 9996, 9995, 9994, 9993, 9992, 9991, 9990, 9989, 9988, 9987, 9986, 9985};
+	set<int> begins;
+	begins.insert(*(prices.begin()));
+	vector<vector<int>> increSubs;
+	increSubs.push_back({ *(prices.begin()) });
+	for (int i = 1; i < prices.size(); i++)
+	{
+		if (prices[i] < *(begins.begin()))
+		{
+			increSubs.push_back({ prices[i] });
+			begins.insert(prices[i]);
+		}
+		else if (prices[i] == *(begins.begin()))
+			continue;
+		else{
+			for (int j = 0; j < increSubs.size(); j++)
+			{
+				if (*(increSubs[j].end() - 1) < prices[i])
+					increSubs[j].push_back(prices[i]);
+			}
+		}
+	}
+	int profit = 0;
+	for (int i = 0; i < increSubs.size(); i++)
+	{
+		if (increSubs[i].size() > 1)
+		{
+			int temPro = *(increSubs[i].end() - 1) - *(increSubs[i].begin());
+			if (profit < temPro)
+				profit = temPro;
+		}
+	}
+	cout << profit << endl;*/
+
+
+
+	//Memory Limit Exceeded
+	/*vector<int> prices = { 7, 2, 4, 1 };
+	cout << maxProfit(prices, 0, prices.size()) << endl;*/
+
+
+
+	//time exceed!  the worst case is under reversed oder
+	/*vector<int> prices = { 10000, 9999, 9998, 9997, 9996, 9995, 9994, 9993, 9992, 9991, 9990, 9989, 9988, 9987, 9986, 9985};
+	set<int> begins;
+	begins.insert(*(prices.begin()));
+	vector<vector<int>> increSubs;
+	increSubs.push_back({ *(prices.begin()) });
+	for (int i = 1; i < prices.size(); i++)
+	{
+		if (prices[i] < *(begins.begin()))
+		{
+			increSubs.push_back({ prices[i] });
+			begins.insert(prices[i]);
+		}
+		else{
+			for (int j = 0; j < increSubs.size(); j++)
+			{
+				if (*(increSubs[j].end() - 1) < prices[i])
+					increSubs[j].push_back(prices[i]);
+			}
+		}
+	}
+	int profit = 0;
+	for (int i = 0; i < increSubs.size(); i++)
+	{
+		if (increSubs[i].size() >1)
+			if (profit < *(increSubs[i].end() - 1) - *(increSubs[i].begin()))
+				profit = *(increSubs[i].end() - 1) - *(increSubs[i].begin());
+			//profits.push_back(*(increSubs[i].end() - 1) - *(increSubs[i].begin()));
+	}
+	cout << profit << endl;
+	*/
+
+
+	//this method will miss the number between maxi and mini
+	/*vector<int> prices = { 7, 2, 4, 1 };
 	int profits = 0;
 	int maxi, mini;
 	maxi = mini = 0;
-	findExtreme(prices, mini, maxi);
+	//findExtreme(prices, mini, maxi);
+	for (int i = 1; i < prices.size(); i++)
+	{
+		if (prices[i] < prices[mini])
+			mini = i;
+		if (prices[i] >= prices[maxi])
+			maxi = i;
+	}
 	if (mini < maxi)
 		cout << prices[maxi] - prices[mini];
 	//findMax
@@ -31,8 +133,13 @@ void main()
 			tmini = i;
 	}
 	int profits2 = prices[maxi] - prices[tmini];
+	//find between maxi and mini
+	
 	//compare
 	cout << (profits>profits2 ? profits : profits2) << endl;
+	*/
+
+
 
 	//Best time to buy and sell stock II
 	/*vector<int> prices = { 8, 5, 8, 5, 4, 3, 2, 1, 5, 2, 6 };
@@ -60,23 +167,31 @@ void main()
 	*/
 
 
+
+
 	//leetcode 3sum closet
+	//achieve by binary search
+
+
+
+	//Time Limit Exceeded
 	/*vector<int> nums = { -3, -3, -5, 1, 56, 1, 6, 2, 4, 42, 11, -63 };
 	int target = 20;
 	sort(nums.begin(), nums.end());
-	int minus = abs(nums[1] + nums[2] + nums[3] - 20);
+	int minus = abs(nums[1] + nums[2] + nums[3] - target);
 	for (int i = 0; i < nums.size() - 2; i++)
 		for (int j = 1; j < nums.size() - 1; j++)
 			for (int k = 2; k < nums.size(); k++)
 			{
-				int temp = abs(nums[i] + nums[j] + nums[k] - target);
-				if (temp>minus)
-					cout<<nums[i] + nums[j] + nums[k];
-				if (temp < minus)
+				int temp = nums[i] + nums[j] + nums[k] - target;
+				if (abs(minus) > abs(temp))
 					minus = temp;
-				
-			}*/
-
+				if (temp > 0)
+					break;
+			}
+	cout<< minus + target << endl;
+	*/
+	
 
 
 

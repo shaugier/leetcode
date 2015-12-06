@@ -27,6 +27,41 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 enum Trend {INCREASE, DECREASE, FLAT};
 
 
+int maxProfit(vector<int> price, int p, int r)
+{
+	int mini = p, maxi = p;
+	for (int i = p; i < r; i++)
+	{
+		if (price[i] < price[mini])
+			mini = i;
+		if (price[i] >= price[maxi])
+			maxi = i;
+	}
+	if (mini <= maxi)
+		return price[maxi] - price[mini];
+	else{
+		//findMax
+		int tmaxi = mini;
+		for (int i = mini + 1; i < r; i++)
+		{
+			if (price[i] > price[tmaxi])
+				tmaxi = i;
+		}
+		int pro1 = price[tmaxi] - price[mini];
+		//findMin
+		int tmini = maxi;
+		for (int i = p; i < maxi; i++)
+		{
+			if (price[i] < price[tmini])
+				tmini = i;
+		}
+		int pro2 = price[maxi] - price[tmini];
+		// find between maxi and mini
+		int pro3 = maxProfit(price, maxi + 1, mini);
+		return max( max(pro1, pro2), pro3);
+	}
+}
+
 void findExtreme(vector<int> arr, int& low, int& high)
 {
 	for (int i = 1; i < arr.size(); i++)
