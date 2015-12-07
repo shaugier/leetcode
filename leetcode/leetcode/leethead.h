@@ -26,6 +26,33 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 enum Trend {INCREASE, DECREASE, FLAT};
 
+
+template<typename T> 
+void quick_sort_recursive(T arr[], int first, int last)
+{
+	if (first >= last)
+		return;
+	T pivot = arr[last];
+	int left = first, right = last;
+	while (true)
+	{
+		while (pivot > arr[left])
+			++left;
+		while (pivot < arr[right])
+			--right;
+		if (left >= right)
+			break;
+		swap(arr[left], arr[right]);
+		++left;
+		--right;
+	}
+	quick_sort_recursive(arr, first, left - 1);;
+	quick_sort_recursive(arr, left, last);
+
+}
+
+
+
 vector<vector<int>> findTarget2(vector<int> candi, size_t beginIndex, int target)
 {
 	vector<vector<int>> appendix;

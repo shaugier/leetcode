@@ -6,14 +6,92 @@ void main()
 {
 
 	//graph
+	//Contains Duplicate II
+	vector<int> nums = { 1, 1 };
+	int k = 1;
+	int maximum = *max_element(nums.begin(), nums.end());
+	vector<int> hashTable(maximum, -1);
+	for (int i = 0; i < nums.size(); i++)
+	{
+		if (hashTable[nums[i] - 1] == -1)
+			hashTable[nums[i] - 1] = i;
+		else if (i - hashTable[nums[i] - 1] <= k)
+			cout << 1<<"   ";
+	}
+
+	/*class Solution {
+	public:
+		bool containsNearbyDuplicate(vector<int>& nums, int k) {
+			int maximum = *max_element(nums.begin(), nums.end());
+			vector<int> hashTable(maximum, -1);
+			for (int i = 0; i < nums.size(); i++)
+			{
+				if (hashTable[nums[i] - 1] == -1)
+					hashTable[nums[i] - 1] = i;
+				else if (i - hashTable[nums[i] - 1] <= k)
+					return true;
+			}
+			return false;
+		}
+	};*/
+
+
+
+
+
+	//Time Limit Exceeded!!!
+	//vector<int> nums = { 5, 6, 3, 6, 7, 9, 11, 7, 9, 0, 1, 8, 4, 19, 17, 3, 18, 17, 10,13, 14, 12, 2, 15, 13, 16 };
+	/*vector<int> nums = { -1, -1 };
+	int k = 1;
+	for (int i = 0; i < nums.size(); i++)
+	{
+		for (int j = i + 1; j < i + k + 1 && j < nums.size(); j++)
+		{
+			if (nums[i] == nums[j])
+				cout << nums[i] << "   ";
+		}
+	}*/
+
+
+
+
+
+
+
+
+	//quick sort --recurrence
+	/*int arr[] = { 5, 6,3,6,7,9, 11, 7, 9, 0, 1, 8, 4, 19, 17, 3, 18, 10, 14, 12, 2, 15, 13, 16 };
+	quick_sort_recursive<int>(arr, 0, 22);
+	for (int i = 0; i < 22; i++)
+		cout << arr[i] << "  ";
+	cout << endl;*/
+
+
+
+
+
+
+
+
+	//Contain Duplicate
+	//not bad, beat 71 percent of others
+	/*vector<int> nums = { 2, 6, 1, 76, 21, 1, 7, 2, 7, 3 };
+	sort(nums.begin(), nums.end());
+	for (int i = 1; i < nums.size(); i++)
+	{
+		if (nums[i - 1] == nums[i])
+			return true;
+	}
+	return false;*/
+
+
 
 	//Combination Sum
-	//the algorithm has found out all solutions, but not record them all
-	vector<int> candidates = { 2, 3, 5, 10 };
+	/*vector<int> candidates = { 2, 3, 5, 10 };
 	int target = 20;
 	vector<vector<int>> solutions;
 	solutions = findTarget2(candidates, 0, target);
-	cout << endl;
+	cout << endl;*/
 
 
 
