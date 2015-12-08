@@ -27,6 +27,16 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 enum Trend {INCREASE, DECREASE, FLAT};
 
 
+
+struct TreeNode{
+	int val;
+	TreeNode *left, *right;
+	TreeNode(int x) :val(x), left(NULL), right(NULL){};
+};
+
+
+
+
 template<typename T> 
 void quick_sort_recursive(T arr[], int first, int last)
 {

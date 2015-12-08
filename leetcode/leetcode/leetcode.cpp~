@@ -6,53 +6,22 @@ void main()
 {
 
 	//graph
-
-
-	//Binary Tree Inorder Traversal
-
-
-
-
-
-
 	//Contains Duplicate II
-	//ACCEPT!!! beat 98.79% of other's
-	/*vector<int> nums = { 1, 0, 1,1,-1 };
+	vector<int> nums = { 1, 1 };
 	int k = 1;
 	int maximum = *max_element(nums.begin(), nums.end());
-	int minimum = *min_element(nums.begin(), nums.end());
-	vector<int> hashPositive;
-	vector<int> hashNegative;
-	if (maximum >= 0)
-		hashPositive = vector<int> (maximum + 1, -1);
-	if (minimum < 0)
-		hashNegative = vector<int> (abs(minimum), -1);
+	vector<int> hashTable(maximum, -1);
 	for (int i = 0; i < nums.size(); i++)
 	{
-		if (nums[i] >= 0){
-			if (hashPositive[nums[i]] == -1 || i - hashPositive[nums[i]] > k)
-				hashPositive[nums[i]] = i;
-			else if (i - hashPositive[nums[i]] <= k)
-				cout << 1 << "   ";
-		}
-		else{
-			if (hashNegative[-nums[i] - 1] == -1 || i - hashNegative[nums[i]] > k)
-				hashNegative[-nums[i] - 1] = i;
-			else if (i - hashNegative[-nums[i] - 1] <= k)
-				cout << 1 << "  ";
-		}
-	}*/
-
-
-
-
-
+		if (hashTable[nums[i] - 1] == -1)
+			hashTable[nums[i] - 1] = i;
+		else if (i - hashTable[nums[i] - 1] <= k)
+			cout << 1<<"   ";
+	}
 
 	/*class Solution {
 	public:
 		bool containsNearbyDuplicate(vector<int>& nums, int k) {
-			if(nums.size() < 2)
-		        	return false;
 			int maximum = *max_element(nums.begin(), nums.end());
 			vector<int> hashTable(maximum, -1);
 			for (int i = 0; i < nums.size(); i++)
@@ -474,7 +443,7 @@ void main()
 	sort(number.begin(), number.end());
 	cout << clock() - start2 << endl;*/
 
-	//Exercise 127. Word Ladder\A3\AC use graph to express the relation between words!
+	//Exercise 127. Word Ladder£¬ use graph to express the relation between words!
 	//undone!!!!!!
 	/*unordered_set<string> wordList = { "hot", "dot", "dog", "lot", "log" };
 	for (auto var : wordList)
@@ -524,7 +493,7 @@ void main()
 	cout << temp << endl;*/
 
 
-	//find longest prefix not longest common prefix\A3\A8here common is an important conception\A3\A9
+	//find longest prefix not longest common prefix£¨here common is an important conception£©
 	/*vector<string> strs = { "something new", "something blue", "changefor", "concentrate", "concern" };
 	string temp;
 	for (int i = 0; i < strs.size(); i++)
