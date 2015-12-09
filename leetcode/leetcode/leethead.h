@@ -16,6 +16,8 @@
 //#include<xstddef>
 #include<functional>
 #include<iomanip>
+#include<Windows.h>
+#include<WinBase.h>
 
 #define WORDMAX 100
 #define LEN 12
@@ -27,12 +29,36 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 enum Trend {INCREASE, DECREASE, FLAT};
 
 
+//details wrong , some test cannot pass
+/*int findHIndex(vector<int> cite, int low, int high)
+{
+	int mid = (low + high) / 2;
+	if (mid == low)
+		return cite[mid];
+	if (cite[mid] > high - mid)
+		return findHIndex(cite, low, mid);
+	else if (cite[mid] < high - mid)
+		return findHIndex(cite, mid + 1, high);
+	else return cite[mid];
+}
+*?/
 
 struct TreeNode{
 	int val;
 	TreeNode *left, *right;
 	TreeNode(int x) :val(x), left(NULL), right(NULL){};
 };
+
+
+
+void inorderTraversal(TreeNode * root, vector<int>& inorderTraveSeque)
+{
+	if ((*root).left)
+		inorderTraversal((*root).left , inorderTraveSeque);
+	inorderTraveSeque.push_back((*root).val);
+	if ((*root).right)
+		inorderTraversal((*root).right, inorderTraveSeque);
+}
 
 
 

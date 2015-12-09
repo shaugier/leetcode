@@ -6,11 +6,72 @@ void main()
 {
 
 	//graph
+	//H-Index
+	//which mean h-papers were cited for at least h times
+	/*vector<int> citations = { 100};
+	sort(citations.begin(), citations.end());
+	int len = citations.size();
+	int i = 0;
+	for (i; i < len; i++)
+	{
+		if (citations[i] >= len - i)
+			break;
+	}
+	cout << len - i << endl;
+*/
+	
+
+
+
+
+	//Bulls and Cows
+	/*string secret = "113563127611234522626262116211347373233";
+	string guess =  "011234546112345426211312761123455626211";
+	//cout << GetTickCount() << endl;
+	int A = 0, B = 0;
+	vector<int> secretHash(10, 0);
+	vector<int> guessHash(10, 0);
+	for (int i = 0; i < guess.size(); i++)
+	{
+		secretHash[secret[i] - '0']++;
+		guessHash[guess[i] - '0']++;
+		if (secret[i] == guess[i])
+			A++;
+	}
+	for (int i = 0; i < 10; i++)
+		B += min(secretHash[i], guessHash[i]);
+	B -= A;
+	string temp;
+	stringstream stream;
+	stream << A;
+	temp.append(stream.str());
+	temp.push_back('A');
+	stream.str("");
+	stream << B;
+	temp.append(stream.str());
+	temp.push_back('B');
+	cout << temp << endl;
+*/
 
 
 	//Binary Tree Inorder Traversal
-
-
+	/*TreeNode* node = new TreeNode(1);
+	TreeNode* root = node;
+	(*node).left = new TreeNode(2);
+	(*node).right = new TreeNode(3);
+	node = (*node).right;
+	(*node).left = new TreeNode(4);
+	node = (*node).left;;
+	(*node).right = new TreeNode(5);
+	//Traversaling
+	vector<int> inorderSequence;
+	inorderTraversal(root, inorderSequence);
+	for each (int var in inorderSequence)
+	{
+		cout << var << "  ";
+	}
+	cout << endl;
+	*/
 
 
 
