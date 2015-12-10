@@ -6,6 +6,39 @@ void main()
 {
 
 	//graph
+
+	//4Sum
+	vector<int> nums = { 1, 0, -1, 0, -2, 2 };
+	//sort(nums.begin(), nums.end());
+	int target = 0;
+	//multimap<int, vector<int>> addendsjSum;
+
+	set<vector<int>> storeAddends;
+	for (int i = 0; i < nums.size(); i++)
+		for (int j = i + 1; j < nums.size(); j++)
+		{
+			int temp = nums[i] + nums[j];
+			if (nums[0]<0 && temp > target + abs(nums[0]) || temp > target)
+				break;
+			storeAddends.insert({temp, nums[i], nums[j] });
+		}
+
+	//sort(storeAddends.begin(), storeAddends.end(), myLess);
+	/*vector<vector<int>> solution;
+	for (int i = 0; i < storeAddends.size(); i++)
+	{
+		int index = myBinarySearch(storeAddends, i + 1, storeAddends.size(), target - storeAddends[i][2]);
+		if (index > 0)
+		{
+			vector<int> temp = { storeAddends[i][0], storeAddends[i][1], storeAddends[index][0], storeAddends[index][1] };
+			sort(temp.begin(), temp.end());
+			solution.push_back(temp);
+		}
+	}*/
+	cout << "finish";
+
+
+
 	//H-Index
 	//which mean h-papers were cited for at least h times
 	/*vector<int> citations = { 100};

@@ -28,6 +28,39 @@ extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 enum Trend {INCREASE, DECREASE, FLAT};
 
+bool myLess(vector<int> elem1, vector<int> elem2)
+{
+	return elem1[2] < elem2[2];
+}
+
+//this is for set<vector<int>> nums
+//undone!!!
+int myBinarySearch(set<vector<int>> nums, int departure, int destinate, int value)
+{
+
+	int mid = (departure + destinate) / 2;
+	if (departure == mid)
+		return -1;
+	if ((nums.find() < value)
+		return myBinarySearch(nums, mid + 1, destinate, value);
+	else if (nums[mid][2] > value)
+		return myBinarySearch(nums, departure, mid, value);
+	else return mid;
+}
+
+/*int myBinarySearch(vector<vector<int>> nums, int departure,int destinate, int value)
+{
+
+	int mid = (departure + destinate) / 2;
+	if (departure == mid)
+		return -1;
+	if (nums[mid][2] < value)
+		return myBinarySearch(nums, mid + 1, destinate, value);
+	else if (nums[mid][2] > value)
+		return myBinarySearch(nums, departure, mid, value);
+	else return mid;
+}
+*/
 
 //details wrong , some test cannot pass
 /*int findHIndex(vector<int> cite, int low, int high)
@@ -41,7 +74,7 @@ enum Trend {INCREASE, DECREASE, FLAT};
 		return findHIndex(cite, mid + 1, high);
 	else return cite[mid];
 }
-*?/
+
 
 struct TreeNode{
 	int val;
