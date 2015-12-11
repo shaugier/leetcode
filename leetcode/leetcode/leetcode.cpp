@@ -2,40 +2,167 @@
 #define n 10000000
 #define realN 1000000
 extern int Mon[];
+//int testClass<int>::_data = 1;
+//int testClass<char>::_data = 2;
 void main()
 {
 
+
+
+
 	//graph
 
-	//4Sum
-	vector<int> nums = { 1, 0, -1, 0, -2, 2 };
-	//sort(nums.begin(), nums.end());
-	int target = 0;
-	//multimap<int, vector<int>> addendsjSum;
+	//test static data in class
+	/*testClass<int> intStatic;
+	testClass<char> charStatic;
+	cout << intStatic._data << endl;
+	intStatic._data = 3;
+	charStatic._data = 4;
+	cout << intStatic._data << endl;*/
+	/*myVector<int> x, y;
+	swap(x, y);
+	int ia[5] = { 0, 1, 2, 3, 4 };
+	myVector<int> a;
+	myVector<int>::iterator ite = ia;
+	x.insert(ite, ia, ia + 5);*/
+	//stack<int, deque<int>> x;
 
+
+
+	//Subsets
+	vector<int> nums = { 1, 2, 3 };
+	vector<vector<int>> subsets;
+	subsets.push_back({});
+	vector<vector<int>> lenIncreSubsets;
+	for (int i = 0; i < nums.size(); i++)
+		lenIncreSubsets.push_back({ i });
+	subsets.insert(subsets.end(), lenIncreSubsets.begin(), lenIncreSubsets.end());
+	vector<vector<int>> record;
+	for (vector<vector<int>>::iterator iter = lenIncreSubsets.begin(); iter != lenIncreSubsets.end(); iter++)
+	{
+		record.clear();
+		for (int j = (*iter).back() + 1; j < nums.size(); j++)
+		{
+			vector<int> temp = *iter;
+			temp.push_back(j);
+			record.push_back(temp);
+		}
+		subsets.insert(subsets.end(), record.begin(), record.end());
+		lenIncreSubsets.clear();
+		lenIncreSubsets = record;
+	}
+
+
+
+
+	//4Sum
+	//Time Limit Eeceeded !!! worse than brure force
+	/*vector<int> nums = { 1, 0, -1, 0, -2, 2 };
+	int target = 0;
+	sort(nums.begin(), nums.end());
+	vector<int> hashBackup(nums.back() - nums.front() + 1, 0);
+	for (int i = 0; i < nums.size(); i++)
+		hashBackup[nums[i] - nums.front()]++;
 	set<vector<int>> storeAddends;
 	for (int i = 0; i < nums.size(); i++)
+	{
 		for (int j = i + 1; j < nums.size(); j++)
+			storeAddends.insert({ nums[i] + nums[j], nums[i], nums[j] });
+	}
+	vector<vector<int>> addends;
+	for (set<vector<int>>::iterator iter = storeAddends.begin(); iter != storeAddends.end(); iter++)
+		addends.push_back(*iter);
+
+	set<vector<int>> solution;
+	for (int i = 0; i < addends.size(); i++)
+	{
+		int index = myBinarySearch(addends, i + 1, addends.size(), target - addends[i][0]);
+		if (index > 0)
 		{
-			int temp = nums[i] + nums[j];
-			if (nums[0]<0 && temp > target + abs(nums[0]) || temp > target)
-				break;
-			storeAddends.insert({temp, nums[i], nums[j] });
+			vector<int> temp = { addends[i][1], addends[i][2], addends[index][1], addends[index][2] };
+			bool flag = false;
+			vector<int> hash = hashBackup;
+			for (int j = 0; j < temp.size(); j++)
+			{
+				if (!hash[temp[j] - nums.front()])
+				{
+					flag = true;
+					break;
+				}
+				hash[temp[j] - nums.front()]--;
+			}
+			if (flag)
+				continue;
+			sort(temp.begin(), temp.end());
+			solution.insert(temp);
 		}
+	}
+	vector<vector<int>> finalSolution;
+	for (set<vector<int>>::iterator iter = solution.begin(); iter != solution.end(); iter++)
+		finalSolution.push_back(*iter);
+	cout << "finish" << endl;*/
+
+
+
+	//brute force
+	/*vector<int> nums = { 1, 0, -1, 0, -2, 2 };
+	int target = 0;
+	sort(nums.begin(), nums.end());
+	vector<vector<int>> solution;
+	for (int i = 0; i < nums.size(); i++)
+	for (int j = i + 1; j < nums.size(); j++)
+	for (int k = j + 1; k < nums.size(); k++)
+	for (int t = k + 1; t < nums.size(); t++)
+	{
+	int temp = nums[i] + nums[j] + nums[k] + nums[t];
+	if (temp == target)
+	solution.push_back({ nums[i], nums[j], nums[k], nums[t] });
+	else if (temp > target)
+	break;
+	}
+	cout << "finish" << endl;*/
+
+
+	//wrong!! cause -1+0 and -1+2 might be added again, then -1 has been used two times
+	/*vector<int> nums = { 1, 0, -1, 0, -2, 2 };
+	int target = 0;
+	sort(nums.begin(), nums.end());
+	set<vector<int>> storeAddends;
+	for (int i = 0; i < nums.size(); i++)
+	{
+	for (int j = i + 1; j < nums.size(); j++)
+	storeAddends.insert({ nums[i] + nums[j], nums[i], nums[j] });
+	}
+	vector<vector<int>> addends;
+	for each (vector<int> var in storeAddends)
+	addends.push_back(var);
+
+	set<vector<int>> solution;
+	for (int i = 0; i < addends.size(); i++)
+	{
+	int index = myBinarySearch(addends, i + 1, addends.size(), target - addends[i][0]);
+	if (index > 0)
+	{
+	vector<int> temp = { addends[i][1], addends[i][2], addends[index][1], addends[index][2] };
+	sort(temp.begin(), temp.end());
+	solution.insert(temp);
+	}
+	}
+	*/
 
 	//sort(storeAddends.begin(), storeAddends.end(), myLess);
 	/*vector<vector<int>> solution;
 	for (int i = 0; i < storeAddends.size(); i++)
 	{
-		int index = myBinarySearch(storeAddends, i + 1, storeAddends.size(), target - storeAddends[i][2]);
-		if (index > 0)
-		{
-			vector<int> temp = { storeAddends[i][0], storeAddends[i][1], storeAddends[index][0], storeAddends[index][1] };
-			sort(temp.begin(), temp.end());
-			solution.push_back(temp);
-		}
-	}*/
-	cout << "finish";
+	int index = myBinarySearch(storeAddends, i + 1, storeAddends.size(), target - storeAddends[i][2]);
+	if (index > 0)
+	{
+	vector<int> temp = { storeAddends[i][0], storeAddends[i][1], storeAddends[index][0], storeAddends[index][1] };
+	sort(temp.begin(), temp.end());
+	solution.push_back(temp);
+	}
+	}
+	cout << "finish";*/
 
 
 
@@ -47,12 +174,12 @@ void main()
 	int i = 0;
 	for (i; i < len; i++)
 	{
-		if (citations[i] >= len - i)
-			break;
+	if (citations[i] >= len - i)
+	break;
 	}
 	cout << len - i << endl;
-*/
-	
+	*/
+
 
 
 
@@ -66,13 +193,13 @@ void main()
 	vector<int> guessHash(10, 0);
 	for (int i = 0; i < guess.size(); i++)
 	{
-		secretHash[secret[i] - '0']++;
-		guessHash[guess[i] - '0']++;
-		if (secret[i] == guess[i])
-			A++;
+	secretHash[secret[i] - '0']++;
+	guessHash[guess[i] - '0']++;
+	if (secret[i] == guess[i])
+	A++;
 	}
 	for (int i = 0; i < 10; i++)
-		B += min(secretHash[i], guessHash[i]);
+	B += min(secretHash[i], guessHash[i]);
 	B -= A;
 	string temp;
 	stringstream stream;
@@ -84,7 +211,7 @@ void main()
 	temp.append(stream.str());
 	temp.push_back('B');
 	cout << temp << endl;
-*/
+	*/
 
 
 	//Binary Tree Inorder Traversal
@@ -101,7 +228,7 @@ void main()
 	inorderTraversal(root, inorderSequence);
 	for each (int var in inorderSequence)
 	{
-		cout << var << "  ";
+	cout << var << "  ";
 	}
 	cout << endl;
 	*/
@@ -118,23 +245,23 @@ void main()
 	vector<int> hashPositive;
 	vector<int> hashNegative;
 	if (maximum >= 0)
-		hashPositive = vector<int> (maximum + 1, -1);
+	hashPositive = vector<int> (maximum + 1, -1);
 	if (minimum < 0)
-		hashNegative = vector<int> (abs(minimum), -1);
+	hashNegative = vector<int> (abs(minimum), -1);
 	for (int i = 0; i < nums.size(); i++)
 	{
-		if (nums[i] >= 0){
-			if (hashPositive[nums[i]] == -1 || i - hashPositive[nums[i]] > k)
-				hashPositive[nums[i]] = i;
-			else if (i - hashPositive[nums[i]] <= k)
-				cout << 1 << "   ";
-		}
-		else{
-			if (hashNegative[-nums[i] - 1] == -1 || i - hashNegative[nums[i]] > k)
-				hashNegative[-nums[i] - 1] = i;
-			else if (i - hashNegative[-nums[i] - 1] <= k)
-				cout << 1 << "  ";
-		}
+	if (nums[i] >= 0){
+	if (hashPositive[nums[i]] == -1 || i - hashPositive[nums[i]] > k)
+	hashPositive[nums[i]] = i;
+	else if (i - hashPositive[nums[i]] <= k)
+	cout << 1 << "   ";
+	}
+	else{
+	if (hashNegative[-nums[i] - 1] == -1 || i - hashNegative[nums[i]] > k)
+	hashNegative[-nums[i] - 1] = i;
+	else if (i - hashNegative[-nums[i] - 1] <= k)
+	cout << 1 << "  ";
+	}
 	}*/
 
 
@@ -144,20 +271,20 @@ void main()
 
 	/*class Solution {
 	public:
-		bool containsNearbyDuplicate(vector<int>& nums, int k) {
-			if(nums.size() < 2)
-		        	return false;
-			int maximum = *max_element(nums.begin(), nums.end());
-			vector<int> hashTable(maximum, -1);
-			for (int i = 0; i < nums.size(); i++)
-			{
-				if (hashTable[nums[i] - 1] == -1)
-					hashTable[nums[i] - 1] = i;
-				else if (i - hashTable[nums[i] - 1] <= k)
-					return true;
-			}
-			return false;
-		}
+	bool containsNearbyDuplicate(vector<int>& nums, int k) {
+	if(nums.size() < 2)
+	return false;
+	int maximum = *max_element(nums.begin(), nums.end());
+	vector<int> hashTable(maximum, -1);
+	for (int i = 0; i < nums.size(); i++)
+	{
+	if (hashTable[nums[i] - 1] == -1)
+	hashTable[nums[i] - 1] = i;
+	else if (i - hashTable[nums[i] - 1] <= k)
+	return true;
+	}
+	return false;
+	}
 	};*/
 
 
@@ -170,11 +297,11 @@ void main()
 	int k = 1;
 	for (int i = 0; i < nums.size(); i++)
 	{
-		for (int j = i + 1; j < i + k + 1 && j < nums.size(); j++)
-		{
-			if (nums[i] == nums[j])
-				cout << nums[i] << "   ";
-		}
+	for (int j = i + 1; j < i + k + 1 && j < nums.size(); j++)
+	{
+	if (nums[i] == nums[j])
+	cout << nums[i] << "   ";
+	}
 	}*/
 
 
@@ -188,7 +315,7 @@ void main()
 	/*int arr[] = { 5, 6,3,6,7,9, 11, 7, 9, 0, 1, 8, 4, 19, 17, 3, 18, 10, 14, 12, 2, 15, 13, 16 };
 	quick_sort_recursive<int>(arr, 0, 22);
 	for (int i = 0; i < 22; i++)
-		cout << arr[i] << "  ";
+	cout << arr[i] << "  ";
 	cout << endl;*/
 
 
@@ -204,8 +331,8 @@ void main()
 	sort(nums.begin(), nums.end());
 	for (int i = 1; i < nums.size(); i++)
 	{
-		if (nums[i - 1] == nums[i])
-			return true;
+	if (nums[i - 1] == nums[i])
+	return true;
 	}
 	return false;*/
 
@@ -229,30 +356,30 @@ void main()
 	increSubs.push_back({ *(prices.begin()) });
 	for (int i = 1; i < prices.size(); i++)
 	{
-		if (prices[i] < *(begins.begin()))
-		{
-			increSubs.push_back({ prices[i] });
-			begins.insert(prices[i]);
-		}
-		else if (prices[i] == *(begins.begin()))
-			continue;
-		else{
-			for (int j = 0; j < increSubs.size(); j++)
-			{
-				if (*(increSubs[j].end() - 1) < prices[i])
-					increSubs[j].push_back(prices[i]);
-			}
-		}
+	if (prices[i] < *(begins.begin()))
+	{
+	increSubs.push_back({ prices[i] });
+	begins.insert(prices[i]);
+	}
+	else if (prices[i] == *(begins.begin()))
+	continue;
+	else{
+	for (int j = 0; j < increSubs.size(); j++)
+	{
+	if (*(increSubs[j].end() - 1) < prices[i])
+	increSubs[j].push_back(prices[i]);
+	}
+	}
 	}
 	int profit = 0;
 	for (int i = 0; i < increSubs.size(); i++)
 	{
-		if (increSubs[i].size() > 1)
-		{
-			int temPro = *(increSubs[i].end() - 1) - *(increSubs[i].begin());
-			if (profit < temPro)
-				profit = temPro;
-		}
+	if (increSubs[i].size() > 1)
+	{
+	int temPro = *(increSubs[i].end() - 1) - *(increSubs[i].begin());
+	if (profit < temPro)
+	profit = temPro;
+	}
 	}
 	cout << profit << endl;*/
 
@@ -272,26 +399,26 @@ void main()
 	increSubs.push_back({ *(prices.begin()) });
 	for (int i = 1; i < prices.size(); i++)
 	{
-		if (prices[i] < *(begins.begin()))
-		{
-			increSubs.push_back({ prices[i] });
-			begins.insert(prices[i]);
-		}
-		else{
-			for (int j = 0; j < increSubs.size(); j++)
-			{
-				if (*(increSubs[j].end() - 1) < prices[i])
-					increSubs[j].push_back(prices[i]);
-			}
-		}
+	if (prices[i] < *(begins.begin()))
+	{
+	increSubs.push_back({ prices[i] });
+	begins.insert(prices[i]);
+	}
+	else{
+	for (int j = 0; j < increSubs.size(); j++)
+	{
+	if (*(increSubs[j].end() - 1) < prices[i])
+	increSubs[j].push_back(prices[i]);
+	}
+	}
 	}
 	int profit = 0;
 	for (int i = 0; i < increSubs.size(); i++)
 	{
-		if (increSubs[i].size() >1)
-			if (profit < *(increSubs[i].end() - 1) - *(increSubs[i].begin()))
-				profit = *(increSubs[i].end() - 1) - *(increSubs[i].begin());
-			//profits.push_back(*(increSubs[i].end() - 1) - *(increSubs[i].begin()));
+	if (increSubs[i].size() >1)
+	if (profit < *(increSubs[i].end() - 1) - *(increSubs[i].begin()))
+	profit = *(increSubs[i].end() - 1) - *(increSubs[i].begin());
+	//profits.push_back(*(increSubs[i].end() - 1) - *(increSubs[i].begin()));
 	}
 	cout << profit << endl;
 	*/
@@ -305,31 +432,31 @@ void main()
 	//findExtreme(prices, mini, maxi);
 	for (int i = 1; i < prices.size(); i++)
 	{
-		if (prices[i] < prices[mini])
-			mini = i;
-		if (prices[i] >= prices[maxi])
-			maxi = i;
+	if (prices[i] < prices[mini])
+	mini = i;
+	if (prices[i] >= prices[maxi])
+	maxi = i;
 	}
 	if (mini < maxi)
-		cout << prices[maxi] - prices[mini];
+	cout << prices[maxi] - prices[mini];
 	//findMax
 	int tmaxi = mini;
 	for (int i = mini + 1; i < prices.size(); i++)
 	{
-		if (prices[i] > prices[tmaxi])
-			tmaxi = i;
+	if (prices[i] > prices[tmaxi])
+	tmaxi = i;
 	}
 	profits = prices[tmaxi] - prices[mini];
 	//findMin
 	int tmini = maxi;
 	for (int i = 0; i < maxi; i++)
 	{
-		if (prices[i] < prices[tmini])
-			tmini = i;
+	if (prices[i] < prices[tmini])
+	tmini = i;
 	}
 	int profits2 = prices[maxi] - prices[tmini];
 	//find between maxi and mini
-	
+
 	//compare
 	cout << (profits>profits2 ? profits : profits2) << endl;
 	*/
@@ -343,21 +470,21 @@ void main()
 	int holdingPrice = 0;
 	for (int i = 0; i < prices.size(); i++)
 	{
-		if (stock(prices, i) == INCREASE && !hold)
-		{//buy
-			holdingPrice = prices[i];
-			profits -= prices[i];
-			hold = true;
-		}
-		else if (stock(prices, i) == DECREASE && hold)
-		{//sell
-			profits += prices[i];
-			holdingPrice = 0;
-			hold = false;
-		}
+	if (stock(prices, i) == INCREASE && !hold)
+	{//buy
+	holdingPrice = prices[i];
+	profits -= prices[i];
+	hold = true;
+	}
+	else if (stock(prices, i) == DECREASE && hold)
+	{//sell
+	profits += prices[i];
+	holdingPrice = 0;
+	hold = false;
+	}
 	}
 	if (hold)
-		profits += prices.back();
+	profits += prices.back();
 	cout << profits << endl;
 	*/
 
@@ -375,18 +502,18 @@ void main()
 	sort(nums.begin(), nums.end());
 	int minus = abs(nums[1] + nums[2] + nums[3] - target);
 	for (int i = 0; i < nums.size() - 2; i++)
-		for (int j = 1; j < nums.size() - 1; j++)
-			for (int k = 2; k < nums.size(); k++)
-			{
-				int temp = nums[i] + nums[j] + nums[k] - target;
-				if (abs(minus) > abs(temp))
-					minus = temp;
-				if (temp > 0)
-					break;
-			}
+	for (int j = 1; j < nums.size() - 1; j++)
+	for (int k = 2; k < nums.size(); k++)
+	{
+	int temp = nums[i] + nums[j] + nums[k] - target;
+	if (abs(minus) > abs(temp))
+	minus = temp;
+	if (temp > 0)
+	break;
+	}
 	cout<< minus + target << endl;
 	*/
-	
+
 
 
 
@@ -410,18 +537,18 @@ void main()
 	int weekofDay = (YEAR*(today.tm_year - Greenwich.tm_year - 1) + CalcuYear(Greenwich, today) + CalcuDays(Greenwich, today)) % 7 + 1;
 	int deviation = weekofDay % 7;
 	if (isLeapYear(today.tm_year) && today.tm_mon == 2)
-		dayofMonth++;
+	dayofMonth++;
 	cout << "    Sunday    Monday    Tuesday    Wednesday    Thursday    Friday    Saturday" << endl;
 	cout << "------------------------------------------------------------------------------" << endl;
 	cout.setf(ios::right);
 	//cout.width(10);
 	for (int j = 0; j < deviation;j++)
-		cout << setw(10) << " ";
+	cout << setw(10) << " ";
 	for (int i = 1; i <= dayofMonth; i++)
 	{
-		cout << setw(10) << i;
-		if ((i + deviation) % 7 == 0)
-			cout << endl;
+	cout << setw(10) << i;
+	if ((i + deviation) % 7 == 0)
+	cout << endl;
 	}
 	cout << endl;
 	*/
@@ -432,8 +559,8 @@ void main()
 	string s;
 	in >> s;
 	for (string::iterator it = s.begin(); it != s.end();it++)
-		printletter(*it);*/
-	
+	printletter(*it);*/
+
 
 
 
@@ -451,7 +578,7 @@ void main()
 	size_t positions = 13;
 	Exchange(rotations, 0, rotations.size(), positions);
 	cout << rotations << endl;
-	//trick rotation-1 and hands turnover rotation 
+	//trick rotation-1 and hands turnover rotation
 	ifstream in("string1.txt");
 	string rotations;
 	in >> rotations;
@@ -461,15 +588,15 @@ void main()
 	size_t remain = rotations.size() % positions;
 	while (remain != 0)
 	{
-		string subString(rotations.end() - positions, rotations.end());
-		positions = positions - remain; 
-		remain = subString.size() % positions;
-		CircularL(subString, positions);	
-		flushEnd(rotations, subString);
+	string subString(rotations.end() - positions, rotations.end());
+	positions = positions - remain;
+	remain = subString.size() % positions;
+	CircularL(subString, positions);
+	flushEnd(rotations, subString);
 	}
 
 	positions = 31;
-	cout << clock() << endl; 
+	cout << clock() << endl;
 	clock_t start2 = clock();
 	reverse(rotations, 0, positions - 1);
 	reverse(rotations, positions, rotations.size() - 1);
@@ -485,22 +612,22 @@ void main()
 	multimap<string, string> multi;
 	while (in >> s)
 	{
-		string temp = s;
-		sort(s.begin(), s.end());
-		multi.insert(make_pair(s, temp));
+	string temp = s;
+	sort(s.begin(), s.end());
+	multi.insert(make_pair(s, temp));
 	}
 	vector<set<string>> vset(multi.size());
 	vector<set<string>>::iterator iter = vset.begin();
 	string priorkey = (*multi.begin()).first;
 	for each (pair<string,string> var in multi)
 	{
-		if (priorkey == var.first)
-			(*iter).insert(var.second);
-		else{
-			priorkey = var.first;
-			iter++;
-			(*iter).insert(var.second);
-		}
+	if (priorkey == var.first)
+	(*iter).insert(var.second);
+	else{
+	priorkey = var.first;
+	iter++;
+	(*iter).insert(var.second);
+	}
 	}
 	cout << endl;*/
 
@@ -528,7 +655,7 @@ void main()
 	cout << ls.ListEmpty() << endl;
 	for (int i = 0; i < 10; i++)
 	{
-		ls.ListInsert(i);
+	ls.ListInsert(i);
 	}
 	ls.ListEmpty();
 	ls.ListLength();
@@ -537,7 +664,7 @@ void main()
 	ls.LocateElem(8);
 	ls.PriorElem(9);
 	ls.NextElem(7);*/
-	
+
 
 
 	//Programming pearls Excercise 1.3-1.4
@@ -545,22 +672,22 @@ void main()
 	/*myBitVec bVec(n);
 	vector<int> source(n), number(realN), answer;
 	for (int i = 0; i < n; i++)
-		source[i] = i;
+	source[i] = i;
 	srand((unsigned)time(NULL));
 	for (int i = 0; i < realN; i++)
 	{
-		int seed = rand() % (n - i);
-		number[i] = source[seed];
-		source[seed] = source[n - i - 1];
+	int seed = rand() % (n - i);
+	number[i] = source[seed];
+	source[seed] = source[n - i - 1];
 	}
 	clock_t start1 = clock();
 	for (int i = 0; i < realN; i++)
-		bVec.set(number[i]);
-	
+	bVec.set(number[i]);
+
 	for (int i = 0; i < n; i++)
 	{
-		if (bVec.test(i))
-			answer.push_back(i);
+	if (bVec.test(i))
+	answer.push_back(i);
 	}
 	clock_t end1 = clock();
 	cout << end1 - start1 << endl;
@@ -572,12 +699,12 @@ void main()
 	//undone!!!!!!
 	/*unordered_set<string> wordList = { "hot", "dot", "dog", "lot", "log" };
 	for (auto var : wordList)
-		cout << var << " ";
+	cout << var << " ";
 	cout << endl;
 	string beginWord = "hit", endWord = "cog";
 	wordList.emplace_hint(wordList.end(),"hit");
 	for (auto var : wordList)
-		cout << var << " ";
+	cout << var << " ";
 	cout << endl;
 	vector<list<int>> nextStrings(wordList.size());
 	auto root = wordList.find("hit");
@@ -594,26 +721,26 @@ void main()
 	/*vector<string> strs = { "ch", "changefor", "choncentrate", "choncern" };
 	string temp;
 	if (strs.size() == 0)
-		cout<<temp<<endl; //cout means  !! return !!
+	cout<<temp<<endl; //cout means  !! return !!
 	int shortest = (*strs.begin()).size();
 	for (vector<string>::iterator it = strs.begin(); it != strs.end();it++)
-		shortest = min((int)(*it).size(), shortest);
-	
+	shortest = min((int)(*it).size(), shortest);
+
 	int i = 0;
 	bool flag = false;
 	while (i < shortest + 1)
 	{
-		for (int k = 0; k < strs.size()-1; k++)
-		{
-			if (strs[k][i] != strs[k + 1][i])
-			{
-				flag = true;
-				break;
-			}
-		}
-		temp = strs[0].substr(0, i++);
-		if (flag)		
-			break;
+	for (int k = 0; k < strs.size()-1; k++)
+	{
+	if (strs[k][i] != strs[k + 1][i])
+	{
+	flag = true;
+	break;
+	}
+	}
+	temp = strs[0].substr(0, i++);
+	if (flag)
+	break;
 	}
 	cout << temp << endl;*/
 
@@ -623,20 +750,20 @@ void main()
 	string temp;
 	for (int i = 0; i < strs.size(); i++)
 	{
-		for (int j = i + 1; j < strs.size(); j++)
-		{
-			int pi = 0, pj = 0;
-			while (pi < strs[i].size() && pj < strs[j].size())
-			{
-				if (strs[i][pi] != strs[j][pj])
-					break;
-				pi++;
-				pj++;
-			}
-			if (pi > temp.size())
-				temp = strs[i].substr(0, pi );
-		}
-		
+	for (int j = i + 1; j < strs.size(); j++)
+	{
+	int pi = 0, pj = 0;
+	while (pi < strs[i].size() && pj < strs[j].size())
+	{
+	if (strs[i][pi] != strs[j][pj])
+	break;
+	pi++;
+	pj++;
+	}
+	if (pi > temp.size())
+	temp = strs[i].substr(0, pi );
+	}
+
 	}
 	cout << temp << endl;*/
 }

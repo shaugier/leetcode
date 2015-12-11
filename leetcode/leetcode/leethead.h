@@ -13,11 +13,13 @@
 #include<limits>
 #include<time.h>
 #include<fstream>
-//#include<xstddef>
+//#include<xstddef> this head file is already included by other head
 #include<functional>
 #include<iomanip>
 #include<Windows.h>
 #include<WinBase.h>
+//head file stl_config.h has been aborted in 2001
+//#include<stl_config.h>
 
 #define WORDMAX 100
 #define LEN 12
@@ -33,34 +35,81 @@ bool myLess(vector<int> elem1, vector<int> elem2)
 	return elem1[2] < elem2[2];
 }
 
-//this is for set<vector<int>> nums
-//undone!!!
-int myBinarySearch(set<vector<int>> nums, int departure, int destinate, int value)
+//template<typename T> 
+//class testClass{
+//public:
+//	static int _data;
+//};
+
+
+/*class alloc{};
+
+template < class T, class Alloc = alloc, size_t bufSize = 0 >
+class deque{
+public:
+	deque()
+	{
+		cout << "deque()" << endl;
+	}
+};
+
+template<class T, class Sequence>
+class stack{
+	Sequence c;
+public:
+ 	stack(){
+		cout << "stack()" << endl;
+	}
+
+};
+
+template<class T, class Alloc = alloc>
+class myVector{
+public:
+	typedef T value_type;
+	typedef value_type* iterator;
+	template<class T>
+	void insert(iterator pos, T first, T last){
+		cout << "insert()" << endl;
+	}
+	void swap(myVector<T, Alloc>&){
+		cout << "swap()" << endl;
+	}
+};
+
+template<class T,class Alloc>
+inline void swap(myVector<T, Alloc>& x, myVector<T, Alloc>& y){
+	x.swap(y);
+}*/
+
+
+//vector<vector<int>> append(vector<int> subset, vector<int> nums, int i)
+//{
+//	vector<vector<int>> temp;
+//	for (int k = i; k < nums.size(); k++)
+//	{
+//		vector<int> changeSubset(subset);
+//		changeSubset.push_back(nums[k]);
+//		temp.push_back(changeSubset);
+//	}
+//	return temp;
+//}
+
+
+
+int myBinarySearch(vector<vector<int>> nums, int departure,int destinate, int value)
 {
 
 	int mid = (departure + destinate) / 2;
-	if (departure == mid)
+	if (departure == destinate)
 		return -1;
-	if ((nums.find() < value)
+	if (nums[mid][0] < value)
 		return myBinarySearch(nums, mid + 1, destinate, value);
-	else if (nums[mid][2] > value)
+	else if (nums[mid][0] > value)
 		return myBinarySearch(nums, departure, mid, value);
 	else return mid;
 }
 
-/*int myBinarySearch(vector<vector<int>> nums, int departure,int destinate, int value)
-{
-
-	int mid = (departure + destinate) / 2;
-	if (departure == mid)
-		return -1;
-	if (nums[mid][2] < value)
-		return myBinarySearch(nums, mid + 1, destinate, value);
-	else if (nums[mid][2] > value)
-		return myBinarySearch(nums, departure, mid, value);
-	else return mid;
-}
-*/
 
 //details wrong , some test cannot pass
 /*int findHIndex(vector<int> cite, int low, int high)
