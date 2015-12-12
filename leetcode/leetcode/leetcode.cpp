@@ -36,21 +36,11 @@ void main()
 	vector<vector<int>> lenIncreSubsets;
 	for (int i = 0; i < nums.size(); i++)
 		lenIncreSubsets.push_back({ i });
-	subsets.insert(subsets.end(), lenIncreSubsets.begin(), lenIncreSubsets.end());
-	vector<vector<int>> record;
-	for (vector<vector<int>>::iterator iter = lenIncreSubsets.begin(); iter != lenIncreSubsets.end(); iter++)
-	{
-		record.clear();
-		for (int j = (*iter).back() + 1; j < nums.size(); j++)
-		{
-			vector<int> temp = *iter;
-			temp.push_back(j);
-			record.push_back(temp);
-		}
-		subsets.insert(subsets.end(), record.begin(), record.end());
-		lenIncreSubsets.clear();
-		lenIncreSubsets = record;
-	}
+	do{
+		mergingSolutions(subsets, lenIncreSubsets, nums);
+		//subsets.insert(subsets.end(), lenIncreSubsets.begin(), lenIncreSubsets.end());
+		lenIncreSubsets = append(lenIncreSubsets, nums);
+	} while (!lenIncreSubsets.empty());
 
 
 

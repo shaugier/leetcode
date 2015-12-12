@@ -95,6 +95,34 @@ inline void swap(myVector<T, Alloc>& x, myVector<T, Alloc>& y){
 //	return temp;
 //}
 
+vector<vector<int>> append(vector<vector<int>> recordOri,vector<int> nums)
+{
+	vector<vector<int>> solutions;
+	for (vector<vector<int>>::iterator iter = recordOri.begin(); iter != recordOri.end(); iter++)
+	{
+		vector<vector<int>> record;
+		for (int j = (*iter).back() + 1; j < nums.size(); j++)
+		{
+			vector<int> temp = *iter;
+			temp.push_back(j);
+			record.push_back(temp);
+		}
+		solutions.insert(solutions.end(), record.begin(), record.end());
+	}
+	return solutions;
+}
+
+void mergingSolutions(vector<vector<int>>& solutions, vector<vector<int>> tails, vector<int> nums)
+{
+	
+	for (vector<vector<int>>::iterator iterOut = tails.begin(); iterOut != tails.end(); iterOut++)
+	{
+		vector<int> temp;
+		for (int i = 0; i < (*iterOut).size(); i++)
+			temp.push_back(nums[(*iterOut)[i]]);
+		solutions.push_back(temp);	
+	}
+}
 
 
 int myBinarySearch(vector<vector<int>> nums, int departure,int destinate, int value)
