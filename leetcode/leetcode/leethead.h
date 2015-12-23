@@ -26,6 +26,34 @@
 #define YEAR 365
 using namespace std;
 
+struct Point{
+	int x;
+	int y;
+	Point() :x(0), y(0){}
+	Point(int a, int b) :x(a), y(b){}
+};
+
+bool collinear(Point a, Point b, Point c)
+{
+	if ((c.x - a.x)*(c.y - b.y) == (c.y - a.y)*(c.x - b.x))
+		return true;
+	return false;
+}
+
+int findFirst(vector<bool> vb, int index)
+{
+	for (int i = index; i < vb.size(); i++)
+		if (vb[i])
+			return i;
+	return vb.size();
+}
+
+bool operator==(const Point& a, const Point& b)
+{
+	if (a.x == b.x && a.y == b.y)
+		return true;
+	return false;
+}
 extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
 enum Trend {INCREASE, DECREASE, FLAT};

@@ -11,6 +11,54 @@ void main()
 
 
 	//graph
+	//leetcode 149: my answer is right, but it commited to be wrong, and I think it's the system which goes wrong
+	/*//vector<Point> points = {  Point(1, 1), Point(1, 1),Point(3,5), Point(1, 1), Point(1,2),Point(2,3),Point(1,5) };
+	//vector<Point> points = { Point(-4, 63), Point(0, 3), Point(-4, 40), Point(-7, 84), Point(-8, 7), Point(30, 154), Point(16, -5), Point(6, 90), Point(18, -6), Point(5, 77), Point(-4, 77), Point(7, -13), Point(-1, -45), Point(16, -5), Point(-9, 86), Point(-16, 11), Point(-7, 84), Point(1, 76), Point(3, 77), Point(10, 67), Point(1, -37), Point(-10, -81), Point(4, -11), Point(-20, 13), Point(-10, 77), Point(6, -17), Point(12, 106), Point(5, -21), Point(-5, 82), Point(6, 71), Point(-15, 34), Point(3, 74), Point(-7, -69), Point(-21, 18), Point(27, 146), Point(-20, 13), Point(21, 130), Point(-6, -65), Point(14, -4), Point(0, 3), Point(9, -5), Point(6, -29), Point(-2, 73), Point(-1, -15), Point(1, 76), Point(-4, 77), Point(6, -29) };
+	vector<Point> points = { Point(1, 1), Point(1, 1), Point(1, 1) };
+	if (points.size() < 3)
+		cout << points.size();
+	int longest = 2;
+	vector<bool> unvisited(points.size(), 1);
+	for (int i = 0; i < points.size(); i++)
+	{
+		unvisited[i] = 0;
+		vector<bool> tempUnvisited(unvisited);
+		while (true)
+		{
+			int tempLongest = 2;
+			int temp = findFirst(tempUnvisited, i + 1);	
+			while (temp < points.size() && points[temp] == points[i])
+			{
+				
+				temp = findFirst(tempUnvisited, temp + 1);
+				if (temp == points.size())
+					break;
+				tempLongest++;
+			}
+			if (temp == points.size())
+			{
+				longest = max(tempLongest, longest);
+				break;
+			}
+			tempUnvisited[temp] = 0;
+			for (int j = temp + 1; j < points.size(); j++)
+			{
+				if (tempUnvisited[j])
+					if (collinear(points[i], points[temp], points[j]))
+					{
+						if (!(points[j] == points[i]))
+							tempUnvisited[j] = 0;
+						tempLongest++;
+					}
+			}
+			longest = max(tempLongest, longest);
+		}
+	}
+	cout << longest << endl;*/
+	
+
+
+
 
 	//test static data in class
 	/*testClass<int> intStatic;
@@ -30,7 +78,9 @@ void main()
 
 
 	//Subsets
-	vector<int> nums = { 1, 2, 3 };
+
+	//really bad, only beat 1.56 percent of others
+	/*vector<int> nums = { 1, 2, 3 };
 	vector<vector<int>> subsets;
 	subsets.push_back({});
 	vector<vector<int>> lenIncreSubsets;
@@ -40,7 +90,7 @@ void main()
 		mergingSolutions(subsets, lenIncreSubsets, nums);
 		//subsets.insert(subsets.end(), lenIncreSubsets.begin(), lenIncreSubsets.end());
 		lenIncreSubsets = append(lenIncreSubsets, nums);
-	} while (!lenIncreSubsets.empty());
+	} while (!lenIncreSubsets.empty());*/
 
 
 
