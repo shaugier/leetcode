@@ -54,14 +54,61 @@ vector<TreeNode*> InOrderTraverse(TreeNode* pNode)
 	temp.insert(temp.end(), t2.begin(), t2.end());
 	return temp;
 }
+void InorderTraverseIterate(TreeNode* root)
+{
+	stack<TreeNode*> s;
+	TreeNode* p = root;
+	while (p || !s.empty())
+	{
+		while (p)
+		{
+			s.push(p);
+			p = p->left;
+		}
+		if (!s.empty())
+		{
+			p = s.top();
+			cout << p->val << " ";
+			s.pop();
+			p = p->right;
+		}
+	} 
+}
 
 TreeNode* KthNode(TreeNode* pRoot, unsigned int k)
 {
-	vector<TreeNode*> inOrderVec = InOrderTraverse(pRoot);
-	if (k > inOrderVec.size())
-		return NULL;
-	return inOrderVec[k-1];
+	stack<TreeNode*> s;
+	TreeNode* p = pRoot;
+	int cnt = 0;
+	//重点是用stack存储节点，有左孩子就一直进栈，
+	//没有的时候打印当前节点，出栈，访问右子树
+	while (p || !s.empty())
+	{
+		while (p)
+		{
+			s.push(p);
+			p = p->left;
+		}
+		if (!s.empty())
+		{
+			p = s.top();
+			cnt++;
+			if (cnt == k)
+				return p;
+			s.pop();
+			p = p->right;
+		}
+	}
+	return NULL;
 }
+
+//TreeNode* KthNode(TreeNode* pRoot, unsigned int k)
+//{
+//	vector<TreeNode*> inOrderVec = InOrderTraverse(pRoot);
+//	if (k > inOrderVec.size())
+//		return NULL;
+//	return inOrderVec[k-1];
+//}
 
 vector<vector<int> > Print(TreeNode* pRoot) {
 	vector<vector<int> > solution;

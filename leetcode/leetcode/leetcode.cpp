@@ -12,7 +12,7 @@ void main()
 	vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
 	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
 	TreeNode * root = reConstructBinaryTree(a, b);
-	TreeNode * node = KthNode(root, 12);
+	TreeNode * node = KthNode(root, 4);
 	cout << endl;
 
 	//Å£¿ÍÍø ´òÓ¡¶þ²æÊ÷£¨²ãÐò±éÀú£©
