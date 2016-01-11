@@ -20,6 +20,7 @@
 #include<WinBase.h>
 //head file stl_config.h has been aborted in 2001
 //#include<stl_config.h>
+#include<stack>
 
 #define WORDMAX 100
 #define LEN 12
@@ -31,9 +32,139 @@ struct TreeLinkNode {
 	struct TreeLinkNode *left;
 	struct TreeLinkNode *right;
 	struct TreeLinkNode *next;
-	TreeLinkNode(int x) :val(x), left(NULL), right(NULL), next(NULL) {
-	}
+	TreeLinkNode(int x) :val(x), left(NULL), right(NULL), next(NULL) {}
 };
+
+struct TreeNode {
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+
+};
+vector<TreeNode*> InOrderTraverse(TreeNode* pNode)
+{
+	vector<TreeNode*> temp;
+	if (!pNode)
+		return temp;
+	vector<TreeNode*> t2 = InOrderTraverse(pNode->left);
+	temp.insert(temp.end(),t2.begin(), t2.end());
+	temp.push_back(pNode);
+	t2 = InOrderTraverse(pNode->right);
+	temp.insert(temp.end(), t2.begin(), t2.end());
+	return temp;
+}
+
+TreeNode* KthNode(TreeNode* pRoot, unsigned int k)
+{
+	vector<TreeNode*> inOrderVec = InOrderTraverse(pRoot);
+	if (k > inOrderVec.size())
+		return NULL;
+	return inOrderVec[k-1];
+}
+
+vector<vector<int> > Print(TreeNode* pRoot) {
+	vector<vector<int> > solution;
+	vector<TreeNode*> p;
+	p.push_back(pRoot);
+	int front = 0;
+	int cnt = 1;
+	while (front < p.size())
+	{
+		vector<int> rec;
+		while (cnt-- && front < p.size())
+		{
+			if (p[front])
+			{
+				rec.push_back(p[front]->val);
+				p.push_back(p[front]->left);
+				p.push_back(p[front]->right);
+			}
+			front++;
+		}
+		if (rec.empty())
+			break;
+		cnt = 2 * rec.size();
+		solution.push_back(rec);
+	}
+	return solution;
+}
+
+vector<vector<int> > levelOrderTraverse(TreeNode* pRoot)
+{
+	vector<vector<int> > print;
+	vector<TreeNode*> q;
+	q.push_back(pRoot);
+	int front = 0;
+	int cnt = 1;
+	for (int i = 0; front < q.size(); i++)
+	{
+		vector<int> recNodes;
+		while (cnt-- && front < q.size())
+		{
+			if (q[front])
+			{
+				recNodes.push_back(q[front]->val);
+				q.push_back(q[front]->left);
+				q.push_back(q[front]->right);
+				front++;
+			}
+			else front++;
+		}
+		if (recNodes.empty())
+			break;
+		if (i % 2 == 1)
+		{
+			for (int j = 0; j < recNodes.size() / 2; j++)
+			{
+				int temp = recNodes[j];
+				recNodes[j] = recNodes[recNodes.size() - 1 - j];
+				recNodes[recNodes.size() - 1 - j] = temp;
+			}
+		}
+		print.push_back(recNodes);
+		cnt = 2 * print.back().size();
+	}
+	return print;
+	
+
+	//origin level order , this is important!!
+	/*TreeNode* q[100];
+	q[0] = T;
+	int front = 0, rear = 1;
+	while (front < rear)
+	{
+		if (q[front])
+		{
+			cout << q[front]->val << " ";
+			q[rear++] = q[front]->left;
+			q[rear++] = q[front]->right;
+			front++;
+		}
+		else front++;
+	}*/
+}
+
+bool isSymmetri(TreeNode* qright, TreeNode* pleft)
+{
+	if (qright && pleft)
+	{
+		if (qright->val != pleft->val)
+			return false;
+		return isSymmetri(qright->left, pleft->right) && isSymmetri(qright->right, pleft->left);
+	}
+	if (!qright && !pleft)
+		return true;
+	return false;
+}
+
+bool isSymmetrical(TreeNode* pRoot)
+{
+	if (!pRoot) //段错误 很多时候都是特殊情况未处理 ！！
+		return true;
+	return isSymmetri(pRoot->left, pRoot->right);
+}
+
 
 TreeLinkNode* GetNext(TreeLinkNode* pNode)
 {
@@ -59,13 +190,6 @@ TreeLinkNode* GetNext(TreeLinkNode* pNode)
 }
 
 
-struct TreeNode {
-	int val;
-	TreeNode *left;
-	TreeNode *right;
-	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
-
-};
 TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> in) 
 {
 	if (pre.size() == 0 || in.size() == 0)

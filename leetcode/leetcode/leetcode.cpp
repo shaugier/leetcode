@@ -8,9 +8,36 @@ void main()
 {
 
 	//graph
+	//牛客网 二叉搜索树的第k个节点
+	vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	TreeNode * node = KthNode(root, 12);
+	cout << endl;
+
+	//牛客网 打印二叉树（层序遍历）
+	/*vector<int> a = { 5, 4, 3, 2 };
+	vector<int> b = { 2, 3, 4, 5 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	vector<vector<int> > vtemp = Print(root);
+	cout << endl;*/
+
+	//牛客网 之字形遍历二叉树（层序遍历）
+	/*vector<int> a = { 5,4,3,2 };
+	vector<int> b = { 2,3,4,5 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	vector<vector<int> > vtemp = levelOrderTraverse(root);
+	cout << endl;*/
+
+	//牛客网 对称树
+	/*vector<int> a = { 1, 2, 4, 8, 10, 6, 3, 7, 5};
+	vector<int> b = { 8, 10, 4, 2, 6, 1, 7, 3, 5};
+	TreeNode * root = reConstructBinaryTree(a, b);
+	cout << isSymmetrical(root) << endl;*/
+
 	//牛客网 二叉树的下一个节点
 	//creat a link tree
-	TreeLinkNode *root = new TreeLinkNode(2);
+	/*TreeLinkNode *root = new TreeLinkNode(2);
 	root->left = new TreeLinkNode(4);
 	root->right = new TreeLinkNode(3);
 	TreeLinkNode *p = root, *q = root;
@@ -26,14 +53,13 @@ void main()
 	q->right = new TreeLinkNode(10);
 	q->left->next = q;
 	q->right->next = q;
-
-	GetNext(p->right);
+	GetNext(p->right);*/
 
 
 	//牛客网 重建二叉树
 	/*vector<int> a = { 1, 2, 3, 4, 5, 6 };
 	vector<int> b = { 3, 2, 1, 5, 4, 6 };
-	reConstructBinaryTree(a, b);*/
+	root = reConstructBinaryTree(a, b);*/
 
 	//牛客网 斐波那契数列
 	//cout << Fibonacci(15) << endl;
