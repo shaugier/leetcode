@@ -21,6 +21,8 @@
 //head file stl_config.h has been aborted in 2001
 //#include<stl_config.h>
 #include<stack>
+#include<heapapi.h>
+#include<queue>
 
 #define WORDMAX 100
 #define LEN 12
@@ -40,6 +42,92 @@ struct TreeNode {
 	TreeNode *left;
 	TreeNode *right;
 	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+
+};
+
+//push heap is independent
+//pop heap& make heap --->  ajust heap
+/*that's why the order is push, ajust, pop, make heap*/
+void myPush_heap(vector<int>& v, int val)
+{
+	v.push_back(val);
+	int holeIndex = v.size() - 1;
+	int parent = (holeIndex - 1) / 2;
+	while (true)
+	{
+		if (v[parent] < v[holeIndex])
+			swap(v[parent], v[holeIndex]);
+		else break;
+		holeIndex = parent;
+		parent = (holeIndex - 1) / 2;
+	}
+}
+void ajust_heap(vector<int>& v, int hole)//push down hole
+{
+	int rChild = (hole + 1) * 2;
+	while (rChild < v.size())
+	{
+		if (v[rChild] < v[rChild - 1])
+			rChild--;
+		if (v[hole] > v[rChild])
+			break;
+		swap(v[hole], v[rChild]);
+		hole = rChild;
+		rChild = (hole + 1) * 2;
+	}
+	if (rChild == v.size() && v[rChild-1] > v[hole])
+		swap(v[rChild - 1], v[hole]);
+}
+
+void myPop_heap(vector<int>& v)
+{
+	if (v.size() < 1)
+		return;
+	swap(v[0], v[v.size() - 1]);
+	v.pop_back();
+	ajust_heap(v, 0);
+}
+
+void myMake_heap(vector<int>& vc)
+{
+	if (vc.size() < 2)
+		return;
+	int parent = (vc.size() - 2) / 2;
+	while (parent >= 0)
+	{
+		//ajust must execute for each parent
+		ajust_heap(vc, parent);
+		parent--;
+	}
+}
+
+
+
+class Solution {
+	priority_queue<int, vector<int>, less<int>> pLess; //max_heap
+	priority_queue<int, vector<int>, greater<int>> pGreater; //min_heap
+public:
+	void Insert(int num)
+	{
+		if (pLess.empty() || num <= pLess.top())
+			pLess.push(num);
+		else pGreater.push(num);
+		if (pLess.size() == pGreater.size() + 2)
+		{
+			pGreater.push(pLess.top());
+			pLess.pop();
+		}
+		if (pLess.size() + 1 == pGreater.size())
+		{
+			pLess.push(pGreater.top());
+			pGreater.pop();
+		}
+	}
+
+	double GetMedian()
+	{
+		return pLess.size() == pGreater.size() ? (pLess.top() + pGreater.top()) / 2.0 : pLess.top();
+	}
 
 };
 vector<TreeNode*> InOrderTraverse(TreeNode* pNode)

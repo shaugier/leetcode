@@ -8,12 +8,31 @@ void main()
 {
 
 	//graph
+	//自己实现heap，c++库内的heap不对外开放，也是为了造轮子
+	/*vector<int> v = { 5, 2, 3, 4, 1, 6, 7, 0, 8 };
+	myMake_heap(v);
+	myPop_heap(v);
+	myPush_heap(v, 9);*/
+	//v.push_back(9);
+	//push_heap(v.begin(), v.end());
+	//make_heap(v.begin(), v.end());
+
+
+	//牛客网 流数据的中位数
+	/*Solution s;
+	vector<int> v = { 5, 2, 3, 4, 1, 6, 7, 0, 8 };
+	for (int i = 0; i < v.size(); i++)
+	{
+		s.Insert(v[i]);
+		cout << s.GetMedian() << " ";
+	}*/
+
 	//牛客网 二叉搜索树的第k个节点
-	vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
 	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
 	TreeNode * root = reConstructBinaryTree(a, b);
 	TreeNode * node = KthNode(root, 4);
-	cout << endl;
+	cout << endl;*/
 
 	//牛客网 打印二叉树（层序遍历）
 	/*vector<int> a = { 5, 4, 3, 2 };
