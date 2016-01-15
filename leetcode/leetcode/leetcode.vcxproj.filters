@@ -23,5 +23,17 @@
     <ClInclude Include="leethead.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="leethead2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="stack2queue.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="replaceSpace.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintListReversely.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

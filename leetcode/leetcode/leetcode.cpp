@@ -1,18 +1,66 @@
-#include"leethead.h"
+//#include"leethead.h"
+//#include"leethead2.h"
+#include "stack2queue.h"
+#include"replaceSpace.h"
+#include"PrintListReversely.h"
 #define n 10000000
 #define realN 1000000
-extern int Mon[];
+//extern int Mon[];
 //int testClass<int>::_data = 1;
 //int testClass<char>::_data = 2;
 void main()
 {
 
 	//graph
+	//牛客网 反向打印链表
+	ListNode* front = new ListNode(3);
+	ListNode* p = front;
+	for (int i = 2; i < 5; i++)
+	{
+		p->next = new ListNode(i + 3);
+		p = p->next;
+	}
+	Solution6 solu;
+	solu.printListFromTailToHead(front);
+
+
+
+	//牛客网 替换空格 
+	//Solution5 在头文件replaceSpace中被#ifndef隔离
+	/*Solution5 solu;
+	char* chs = "hi wo";
+	solu.replaceSpace(chs, 5);*/
+
+	//牛客网 用两个栈实现队列
+	/*Solution4 solu;
+	for (int i = 0; i < 10; i++)
+		solu.push(i);
+	solu.pop();
+	solu.push(4);
+	for (int i = 0; i < 10; i++)
+		cout << solu.pop() << " ";*/
+
+
+	//牛客网 序列化和反序列化二叉树
+	//层序存储，总是提示发生段错误！数组越界，堆栈溢出
+	//方法很好很对，要舍得给冗余空间，存成完全二叉树，而不是普通二叉树
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution2  solu2;
+	char *chs = solu2.Serialize(root);
+	solu2.Deserialize(chs);*/
+
+
+
+
 	//自己实现heap，c++库内的heap不对外开放，也是为了造轮子
 	/*vector<int> v = { 5, 2, 3, 4, 1, 6, 7, 0, 8 };
 	myMake_heap(v);
 	myPop_heap(v);
 	myPush_heap(v, 9);*/
+
+	//与库函数操作结果对比，发现结果一样
 	//v.push_back(9);
 	//push_heap(v.begin(), v.end());
 	//make_heap(v.begin(), v.end());

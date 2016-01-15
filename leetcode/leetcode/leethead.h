@@ -23,12 +23,15 @@
 #include<stack>
 #include<heapapi.h>
 #include<queue>
+#include<sstream>
 
 #define WORDMAX 100
 #define LEN 12
 #define YEAR 365
 using namespace std;
 
+#ifndef _TREENODE_
+#define _TREENODE_
 struct TreeLinkNode {
 	int val;
 	struct TreeLinkNode *left;
@@ -44,6 +47,9 @@ struct TreeNode {
 	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
 
 };
+
+#endif
+
 
 //push heap is independent
 //pop heap& make heap --->  ajust heap
@@ -75,7 +81,7 @@ void ajust_heap(vector<int>& v, int hole)//push down hole
 		hole = rChild;
 		rChild = (hole + 1) * 2;
 	}
-	if (rChild == v.size() && v[rChild-1] > v[hole])
+	if (rChild == v.size() && v[rChild - 1] > v[hole])
 		swap(v[rChild - 1], v[hole]);
 }
 
@@ -136,7 +142,7 @@ vector<TreeNode*> InOrderTraverse(TreeNode* pNode)
 	if (!pNode)
 		return temp;
 	vector<TreeNode*> t2 = InOrderTraverse(pNode->left);
-	temp.insert(temp.end(),t2.begin(), t2.end());
+	temp.insert(temp.end(), t2.begin(), t2.end());
 	temp.push_back(pNode);
 	t2 = InOrderTraverse(pNode->right);
 	temp.insert(temp.end(), t2.begin(), t2.end());
@@ -160,7 +166,7 @@ void InorderTraverseIterate(TreeNode* root)
 			s.pop();
 			p = p->right;
 		}
-	} 
+	}
 }
 
 TreeNode* KthNode(TreeNode* pRoot, unsigned int k)
@@ -261,7 +267,7 @@ vector<vector<int> > levelOrderTraverse(TreeNode* pRoot)
 		cnt = 2 * print.back().size();
 	}
 	return print;
-	
+
 
 	//origin level order , this is important!!
 	/*TreeNode* q[100];
@@ -269,14 +275,14 @@ vector<vector<int> > levelOrderTraverse(TreeNode* pRoot)
 	int front = 0, rear = 1;
 	while (front < rear)
 	{
-		if (q[front])
-		{
-			cout << q[front]->val << " ";
-			q[rear++] = q[front]->left;
-			q[rear++] = q[front]->right;
-			front++;
-		}
-		else front++;
+	if (q[front])
+	{
+	cout << q[front]->val << " ";
+	q[rear++] = q[front]->left;
+	q[rear++] = q[front]->right;
+	front++;
+	}
+	else front++;
 	}*/
 }
 
@@ -310,7 +316,7 @@ TreeLinkNode* GetNext(TreeLinkNode* pNode)
 			pNode = pNode->left;
 		return pNode;
 	}
-		return pNode->right;
+	return pNode->right;
 	TreeLinkNode *father = pNode->next;
 	while (father)
 	{
@@ -325,7 +331,7 @@ TreeLinkNode* GetNext(TreeLinkNode* pNode)
 }
 
 
-TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> in) 
+TreeNode* reConstructBinaryTree(vector<int> pre, vector<int> in)
 {
 	if (pre.size() == 0 || in.size() == 0)
 		return NULL;
@@ -510,8 +516,10 @@ bool operator==(const Point& a, const Point& b)
 		return true;
 	return false;
 }
+#ifndef _MONTHDAYS_
+#define _MONTHDAYS_
 extern int Mon[LEN] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
-
+#endif
 enum Trend { INCREASE, DECREASE, FLAT };
 
 bool myLess(vector<int> elem1, vector<int> elem2)

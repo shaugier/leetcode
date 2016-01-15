@@ -82,6 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="leethead.h" />
+    <ClInclude Include="leethead2.h" />
+    <ClInclude Include="PrintListReversely.h" />
+    <ClInclude Include="replaceSpace.h" />
+    <ClInclude Include="stack2queue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
