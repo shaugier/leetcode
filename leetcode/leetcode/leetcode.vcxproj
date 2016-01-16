@@ -81,10 +81,15 @@
     <ClCompile Include="leetcode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FindKth2Tail.h" />
+    <ClInclude Include="jumpFloor.h" />
     <ClInclude Include="leethead.h" />
     <ClInclude Include="leethead2.h" />
     <ClInclude Include="PrintListReversely.h" />
+    <ClInclude Include="recCover.h" />
+    <ClInclude Include="reOrderArray.h" />
     <ClInclude Include="replaceSpace.h" />
+    <ClInclude Include="reverseArray.h" />
     <ClInclude Include="stack2queue.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

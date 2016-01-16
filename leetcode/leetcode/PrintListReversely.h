@@ -7,7 +7,8 @@
 
 using namespace std;
 
-
+#ifndef _LIST_NODE_
+#define _LIST_NODE_
  struct ListNode {
         int val;
         struct ListNode *next;
@@ -15,6 +16,10 @@ using namespace std;
               val(x), next(NULL) {
         }
  };
+#endif
+
+#ifndef _SOLUTION6_
+#define _SOLUTION6_
 
 class Solution6 {
 public:
@@ -35,3 +40,4 @@ public:
 		return nodesValue;
 	}
 };
+#endif

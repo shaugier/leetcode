@@ -3,16 +3,24 @@
 #include "stack2queue.h"
 #include"replaceSpace.h"
 #include"PrintListReversely.h"
+#include"jumpFloor.h"
+#include"reverseArray.h"
+#include"recCover.h"
+#include"reOrderArray.h"
+#include"FindKth2Tail.h"
+
+
 #define n 10000000
 #define realN 1000000
 //extern int Mon[];
 //int testClass<int>::_data = 1;
 //int testClass<char>::_data = 2;
+
 void main()
 {
 
 	//graph
-	//牛客网 反向打印链表
+	//牛客网 链表中倒数第k个节点
 	ListNode* front = new ListNode(3);
 	ListNode* p = front;
 	for (int i = 2; i < 5; i++)
@@ -20,8 +28,36 @@ void main()
 		p->next = new ListNode(i + 3);
 		p = p->next;
 	}
+	Solution14 solu;
+	solu.FindKthToTail(front, 3);
+
+
+
+	//牛客网 调整数组顺序使奇数位于偶数前面
+	/*Solution13 solu;
+	solu.reOrderArray(vector < int > {1,2,4,5,7,8,9});*/
+
+	//牛客网 矩形覆盖
+	/*Solution11 solu;
+	cout << solu.rectCover(7);*/
+
+	//牛客网 旋转数组的最小数字
+	/*Solution10 solu;
+	cout << solu.minNumberInRotateArray(vector < int > {3, 3, 3, 3, 5, 6, 7, 8, 9, 12, 14, 14, 15, 1, 2, 3, 3, 3, 3, });
+	cout << endl;*/
+
+	//牛客网 跳台阶 jumpFloor.h
+
+	//牛客网 反向打印链表
+	/*ListNode* front = new ListNode(3);
+	ListNode* p = front;
+	for (int i = 2; i < 5; i++)
+	{
+		p->next = new ListNode(i + 3);
+		p = p->next;
+	}
 	Solution6 solu;
-	solu.printListFromTailToHead(front);
+	solu.printListFromTailToHead(front);*/
 
 
 

@@ -35,5 +35,20 @@
     <ClInclude Include="PrintListReversely.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="jumpFloor.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="reverseArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="recCover.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="reOrderArray.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FindKth2Tail.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
