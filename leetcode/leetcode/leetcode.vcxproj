@@ -82,7 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Clone.h" />
+    <ClInclude Include="Convert.h" />
+    <ClInclude Include="FindGreatestSumOfSubarray.h" />
     <ClInclude Include="FindKth2Tail.h" />
+    <ClInclude Include="FindPath.h" />
     <ClInclude Include="GetLeastKnumbers.h" />
     <ClInclude Include="HasSubtree.h" />
     <ClInclude Include="IsPopOrder.h" />
@@ -90,6 +93,8 @@
     <ClInclude Include="leethead.h" />
     <ClInclude Include="leethead2.h" />
     <ClInclude Include="Mirror.h" />
+    <ClInclude Include="MoreThanHalfNum.h" />
+    <ClInclude Include="Permutation.h" />
     <ClInclude Include="PrintBTreeFromTop2Bottom.h" />
     <ClInclude Include="PrintListReversely.h" />
     <ClInclude Include="PrintMatClockwise.h" />

@@ -14,6 +14,10 @@
 #include"VerifySequenceOfBST.h"
 #include"GetLeastKnumbers.h"
 #include"Clone.h"
+#include"FindPath.h"
+#include"Convert.h"
+#include"Permutation.h"
+#include"MoreThanHalfNum.h"
 
 
 #define n 10000000
@@ -26,12 +30,38 @@ void main()
 {
 
 	//graph
+	//牛客网 数组中出现超过一半的数字
+	/*vector<int> nums = { 1, 2, 3, 2, 4, 2, 5, 2, 3 };
+	Solution26 solu;
+	solu.MoreThanHalfNum_Solution(nums);*/
+
+
+	//牛客网 字符串的排列 unsolved !!!
+	/*string s = "abccd";
+	Solution25 solu;
+	solu.Permutation(s);*/
+
+
+	//牛客网 二叉搜索树转换成双向链表
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution24 solu;
+	solu.Convert(root);*/
+
+	//牛客网 二叉树中和为某一值的路径
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution23 solu;
+	solu.FindPath(root, 27);*/
+
 	//牛客网 复制复杂链表
-	RandomListNode *rl = new RandomListNode(10);
+	/*RandomListNode *rl = new RandomListNode(10);
 	rl->next = new RandomListNode(3);
 	rl->random = rl;
 	Solution22 solu;
-	solu.Clone(rl);
+	solu.Clone(rl);*/
 
 	//牛客网 最小的k个数
 	/*vector<int> vc = { 2, 4, 6, 1, 8, 11, 14, 16, 3, 5, 7, 9 };
