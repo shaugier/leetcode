@@ -50,5 +50,29 @@
     <ClInclude Include="FindKth2Tail.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="HasSubtree.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Mirror.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintMatClockwise.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IsPopOrder.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintBTreeFromTop2Bottom.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="VerifySequenceOfBST.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="GetLeastKnumbers.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Clone.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

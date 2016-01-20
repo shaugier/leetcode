@@ -109,7 +109,7 @@ void myMake_heap(vector<int>& vc)
 
 
 
-class Solution {
+class Solution0 {
 	priority_queue<int, vector<int>, less<int>> pLess; //max_heap
 	priority_queue<int, vector<int>, greater<int>> pGreater; //min_heap
 public:

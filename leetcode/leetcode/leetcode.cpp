@@ -1,13 +1,19 @@
-//#include"leethead.h"
-//#include"leethead2.h"
+#include"leethead.h"
 #include "stack2queue.h"
 #include"replaceSpace.h"
-#include"PrintListReversely.h"
 #include"jumpFloor.h"
 #include"reverseArray.h"
 #include"recCover.h"
 #include"reOrderArray.h"
 #include"FindKth2Tail.h"
+#include"HasSubtree.h"
+#include"Mirror.h"
+#include"PrintMatClockwise.h"
+#include"IsPopOrder.h"
+#include"PrintBTreeFromTop2Bottom.h"
+#include"VerifySequenceOfBST.h"
+#include"GetLeastKnumbers.h"
+#include"Clone.h"
 
 
 #define n 10000000
@@ -20,8 +26,64 @@ void main()
 {
 
 	//graph
+	//牛客网 复制复杂链表
+	RandomListNode *rl = new RandomListNode(10);
+	rl->next = new RandomListNode(3);
+	rl->random = rl;
+	Solution22 solu;
+	solu.Clone(rl);
+
+	//牛客网 最小的k个数
+	/*vector<int> vc = { 2, 4, 6, 1, 8, 11, 14, 16, 3, 5, 7, 9 };
+	Solution21 solu;
+	vector<int> vctemp = solu.GetLeastNumbers_Solution(vc, 4);*/
+
+	//牛客网 是否为二叉搜索树的后序遍历
+	/*vector<int> vc = { 7, 4, 6, 5 };
+	Solution20 solu;
+	cout << solu.VerifySquenceOfBST(vc) << endl;*/
+
+	//牛客网 从上到下打印二叉树
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution19 solu;
+	solu.PrintFromTopToBottom(root);*/
+
+
+	//牛客网 栈的压入、弹出序列
+	/*vector<int> a = { 1,2,3,4,5 };
+	vector<int> b = { 4,5,3,2,1};
+	Solution18 solu;
+	cout << solu.IsPopOrder(a, b);*/
+
+	//牛客网 顺时针打印矩阵
+	/*vector<vector<int>> mat = { { 1, 2, 3, 4, 5, 6 }, { 7, 8, 9, 10, 11, 12 }, { 13, 14, 15, 16, 17, 18 },
+	{ 19, 20, 21, 22, 23, 24 }, { 25, 26, 27, 28, 29, 30 } };
+	Solution17 solu;
+	vector<int> test = solu.printMatrix(mat);*/
+
+
+	//牛客网 求二叉树的镜像
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution16 solu;
+	solu.Mirror(root);*/
+
+
+	//牛客网 判断B是否为A的子树
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	vector<int> c = { 3, 2, 7, 5, 4, 6, 8 };
+	vector<int> d = { 2, 3, 4, 5, 6, 7, 8 };
+	TreeNode * root2 = reConstructBinaryTree(c, d);
+	Solution15 solu;
+	solu.HasSubtree(root, root2);*/
+
 	//牛客网 链表中倒数第k个节点
-	ListNode* front = new ListNode(3);
+	/*ListNode* front = new ListNode(3);
 	ListNode* p = front;
 	for (int i = 2; i < 5; i++)
 	{
@@ -29,7 +91,7 @@ void main()
 		p = p->next;
 	}
 	Solution14 solu;
-	solu.FindKthToTail(front, 3);
+	solu.FindKthToTail(front, 3);*/
 
 
 

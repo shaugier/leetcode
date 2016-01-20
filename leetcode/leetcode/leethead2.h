@@ -25,7 +25,7 @@ struct TreeNode {
 
 };
 
-#endif
+
 
 //牛客网 序列化和反序列化二叉树，AC，但是代码长啊！！！
 class Solution3 {
@@ -199,3 +199,5 @@ public:
 		return tree[0];
 	}
 };
+
+#endif

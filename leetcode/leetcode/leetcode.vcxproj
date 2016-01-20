@@ -81,16 +81,24 @@
     <ClCompile Include="leetcode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Clone.h" />
     <ClInclude Include="FindKth2Tail.h" />
+    <ClInclude Include="GetLeastKnumbers.h" />
+    <ClInclude Include="HasSubtree.h" />
+    <ClInclude Include="IsPopOrder.h" />
     <ClInclude Include="jumpFloor.h" />
     <ClInclude Include="leethead.h" />
     <ClInclude Include="leethead2.h" />
+    <ClInclude Include="Mirror.h" />
+    <ClInclude Include="PrintBTreeFromTop2Bottom.h" />
     <ClInclude Include="PrintListReversely.h" />
+    <ClInclude Include="PrintMatClockwise.h" />
     <ClInclude Include="recCover.h" />
     <ClInclude Include="reOrderArray.h" />
     <ClInclude Include="replaceSpace.h" />
     <ClInclude Include="reverseArray.h" />
     <ClInclude Include="stack2queue.h" />
+    <ClInclude Include="VerifySequenceOfBST.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
