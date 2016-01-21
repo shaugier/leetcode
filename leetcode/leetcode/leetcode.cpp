@@ -1,23 +1,26 @@
-#include"leethead.h"
-#include "stack2queue.h"
-#include"replaceSpace.h"
-#include"jumpFloor.h"
-#include"reverseArray.h"
-#include"recCover.h"
-#include"reOrderArray.h"
-#include"FindKth2Tail.h"
-#include"HasSubtree.h"
-#include"Mirror.h"
-#include"PrintMatClockwise.h"
-#include"IsPopOrder.h"
-#include"PrintBTreeFromTop2Bottom.h"
-#include"VerifySequenceOfBST.h"
-#include"GetLeastKnumbers.h"
-#include"Clone.h"
-#include"FindPath.h"
-#include"Convert.h"
-#include"Permutation.h"
-#include"MoreThanHalfNum.h"
+//#include"leethead.h"
+//#include "stack2queue.h"
+//#include"replaceSpace.h"
+//#include"jumpFloor.h"
+//#include"reverseArray.h"
+//#include"recCover.h"
+//#include"reOrderArray.h"
+//#include"FindKth2Tail.h"
+//#include"HasSubtree.h"
+//#include"Mirror.h"
+//#include"PrintMatClockwise.h"
+//#include"IsPopOrder.h"
+//#include"PrintBTreeFromTop2Bottom.h"
+//#include"VerifySequenceOfBST.h"
+//#include"GetLeastKnumbers.h"
+//#include"Clone.h"
+//#include"FindPath.h"
+//#include"Convert.h"
+//#include"Permutation.h"
+//#include"MoreThanHalfNum.h"
+//#include"FindGreatestSumOfSubarray.h"
+#include"Count_1.h"
+#include"PrintMinNumber.h"
 
 
 #define n 10000000
@@ -30,6 +33,22 @@ void main()
 {
 
 	//graph
+	//牛客网 把数组排成最小的数
+	vector<int> nums = { 1, 23, 13, 52, 24 };
+	Solution29 solu;
+	solu.PrintMinNumber(nums);
+
+
+	//牛客网 整数1出现的次数
+	/*int number = 120;
+	Solution28 solu;
+	cout << solu.NumberOf1Between1AndN_Solution(number) << endl;*/
+
+	//牛客网 连续子数组最大和
+	/*vector<int> arr = { -2, -8, -1, -5, -9 };
+	Solution27 solu;
+	cout << solu.FindGreatestSumOfSubArray(arr) << endl;*/
+
 	//牛客网 数组中出现超过一半的数字
 	/*vector<int> nums = { 1, 2, 3, 2, 4, 2, 5, 2, 3 };
 	Solution26 solu;

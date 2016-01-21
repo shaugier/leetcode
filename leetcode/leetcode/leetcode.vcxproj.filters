@@ -89,5 +89,11 @@
     <ClInclude Include="FindGreatestSumOfSubarray.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Count_1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="PrintMinNumber.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

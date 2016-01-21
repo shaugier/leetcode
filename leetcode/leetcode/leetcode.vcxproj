@@ -83,6 +83,7 @@
   <ItemGroup>
     <ClInclude Include="Clone.h" />
     <ClInclude Include="Convert.h" />
+    <ClInclude Include="Count_1.h" />
     <ClInclude Include="FindGreatestSumOfSubarray.h" />
     <ClInclude Include="FindKth2Tail.h" />
     <ClInclude Include="FindPath.h" />
@@ -98,6 +99,7 @@
     <ClInclude Include="PrintBTreeFromTop2Bottom.h" />
     <ClInclude Include="PrintListReversely.h" />
     <ClInclude Include="PrintMatClockwise.h" />
+    <ClInclude Include="PrintMinNumber.h" />
     <ClInclude Include="recCover.h" />
     <ClInclude Include="reOrderArray.h" />
     <ClInclude Include="replaceSpace.h" />
