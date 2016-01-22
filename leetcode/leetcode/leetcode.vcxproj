@@ -105,6 +105,7 @@
     <ClInclude Include="replaceSpace.h" />
     <ClInclude Include="reverseArray.h" />
     <ClInclude Include="stack2queue.h" />
+    <ClInclude Include="UglyNumber.h" />
     <ClInclude Include="VerifySequenceOfBST.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

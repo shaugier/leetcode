@@ -19,8 +19,9 @@
 //#include"Permutation.h"
 //#include"MoreThanHalfNum.h"
 //#include"FindGreatestSumOfSubarray.h"
-#include"Count_1.h"
-#include"PrintMinNumber.h"
+//#include"Count_1.h"
+//#include"PrintMinNumber.h"
+#include"UglyNumber.h"
 
 
 #define n 10000000
@@ -33,10 +34,14 @@ void main()
 {
 
 	//graph
+	//牛客网 丑数
+	Solution30 solu;
+	cout << solu.GetUglyNumber_Solution(16) << endl;
+
 	//牛客网 把数组排成最小的数
-	vector<int> nums = { 1, 23, 13, 52, 24 };
+	/*vector<int> nums = { 2,22,21, 3, 321, 32, 341 };
 	Solution29 solu;
-	solu.PrintMinNumber(nums);
+	solu.PrintMinNumber(nums);*/
 
 
 	//牛客网 整数1出现的次数

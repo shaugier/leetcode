@@ -95,5 +95,8 @@
     <ClInclude Include="PrintMinNumber.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UglyNumber.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
