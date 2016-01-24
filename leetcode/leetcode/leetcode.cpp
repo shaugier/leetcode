@@ -1,4 +1,4 @@
-//#include"leethead.h"
+#include"leethead.h"
 //#include "stack2queue.h"
 //#include"replaceSpace.h"
 //#include"jumpFloor.h"
@@ -21,10 +21,12 @@
 //#include"FindGreatestSumOfSubarray.h"
 //#include"Count_1.h"
 //#include"PrintMinNumber.h"
-#include"UglyNumber.h"
-#include"FirstCommonNode.h"
-#include"InversePairs.h"
-#include"FirstNotRepeatingChar.h"
+//#include"UglyNumber.h"
+//#include"FirstCommonNode.h"
+//#include"InversePairs.h"
+//#include"FirstNotRepeatingChar.h"
+//#include"GetNumberOfK.h"
+#include"TreeDepth.h"
 
 
 #define n 10000000
@@ -37,10 +39,24 @@ void main()
 {
 
 	//graph
+	//牛客网 二叉树的深度
+	vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution36 solu;
+	cout << solu.TreeDepth(root);
+
+
+	//牛客网 数字在排序数组中出现的次数
+	/*vector<int> sortedArray = { 3, 55, 56, 67, 86, 122, 143, 146, 156, 176, 176, 184 };
+	Solution35 solu;
+	solu.GetNumberOfK(sortedArray, 6);*/
+
+
 	//牛客网 第一个只出现一次的字符位置
-	string s = "abcdefg";
+	/*string s = "abcdefg";
 	Solution34 solu;
-	solu.FirstNotRepeatingChar(s);
+	solu.FirstNotRepeatingChar(s);*/
 
 	//牛客网 数组中的逆序对
 	/*vector<int> serial = { 5, 6, 4, 3, 9, 2, 1 };

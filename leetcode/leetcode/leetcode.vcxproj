@@ -90,8 +90,10 @@
     <ClInclude Include="FirstCommonNode.h" />
     <ClInclude Include="FirstNotRepeatingChar.h" />
     <ClInclude Include="GetLeastKnumbers.h" />
+    <ClInclude Include="GetNumberOfK.h" />
     <ClInclude Include="HasSubtree.h" />
     <ClInclude Include="InversePairs.h" />
+    <ClInclude Include="IsBalanced_Solution.h" />
     <ClInclude Include="IsPopOrder.h" />
     <ClInclude Include="jumpFloor.h" />
     <ClInclude Include="leethead.h" />
@@ -108,6 +110,7 @@
     <ClInclude Include="replaceSpace.h" />
     <ClInclude Include="reverseArray.h" />
     <ClInclude Include="stack2queue.h" />
+    <ClInclude Include="TreeDepth.h" />
     <ClInclude Include="UglyNumber.h" />
     <ClInclude Include="VerifySequenceOfBST.h" />
   </ItemGroup>

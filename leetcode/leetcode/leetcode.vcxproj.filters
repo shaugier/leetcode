@@ -107,5 +107,14 @@
     <ClInclude Include="FirstNotRepeatingChar.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="GetNumberOfK.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TreeDepth.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IsBalanced_Solution.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
