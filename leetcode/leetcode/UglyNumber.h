@@ -1,47 +1,52 @@
+#include<set>
 #include"leethead2.h"
 
-
+//溢出，溢出啊！！！ 老子差点调代码调哭了 呜呜~~~
 class Solution30 {
-	vector<int> primes;
 public:
-	bool isPrime(int num)
+	bool Insert(vector<unsigned>& vc, int front, int finishIndex)
 	{
-		for (int i = 2; i <= num / 2; i++)
+		
+		vector<int> factors = { 2, 3, 5 };
+		for (int i = 0; i < 3; i++)
 		{
-			if (num%i == 0)
-				return false;
-		}
-		return true;
-	}
-	bool isNotUgly(int number)
-	{
-		int tail = primes.back();
-		while (tail < number)
-		{
-			tail += 2;
-			if (isPrime(tail))
+			
+			unsigned temp = vc[front] * factors[i];
+			if (vc.back() == temp)
+				continue;
+			if (vc.back() < temp)
 			{
-				primes.push_back(tail);
+				vc.push_back(temp);
+				continue;
+			}	
+			int first = front + 1, last = vc.size() - 1;
+			int mid = (first + last) / 2;
+			while (first < last)
+			{
+				mid = (first + last) / 2;
+				if (vc[mid] < temp)
+					first = mid + 1;
+				else if (vc[mid] > temp)
+					last = mid;
+				else {
+					break;
+				}
 			}
-		}
-		for (int i = 0; i < primes.size(); i++)
-		{
-			if (number < primes[i])
-				break;
-			if (number%primes[i] == 0)
+			if (i == 0 && last > finishIndex)
 				return true;
+			if (first == last && vc[first] != temp)
+				vc.insert(vc.begin() + last, temp);
 		}
 		return false;
 	}
 	int GetUglyNumber_Solution(int index) {
-		primes.push_back(7);
-		int i = 1;
-		while (index)
+		vector<unsigned> uglys;
+		uglys.push_back(1);
+		int front = 0;
+		while (!Insert(uglys, front, index))
 		{
-			if (isNotUgly(i++))
-				continue;
-			index--;
+			front++;
 		}
-		return --i;
+		return uglys[index - 1];
 	}
 };

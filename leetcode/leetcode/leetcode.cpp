@@ -22,6 +22,9 @@
 //#include"Count_1.h"
 //#include"PrintMinNumber.h"
 #include"UglyNumber.h"
+#include"FirstCommonNode.h"
+#include"InversePairs.h"
+#include"FirstNotRepeatingChar.h"
 
 
 #define n 10000000
@@ -34,9 +37,37 @@ void main()
 {
 
 	//graph
+	//牛客网 第一个只出现一次的字符位置
+	string s = "abcdefg";
+	Solution34 solu;
+	solu.FirstNotRepeatingChar(s);
+
+	//牛客网 数组中的逆序对
+	/*vector<int> serial = { 5, 6, 4, 3, 9, 2, 1 };
+	Solution33 solu;
+	solu.InversePairs(serial);*/
+
+	//牛客网 两个链表的第一个公共节点
+	/*ListNode* ls1 = new ListNode(3);
+	ListNode* p = ls1;
+	for (int i = 2; i < 5; i++)
+	{
+		p->next = new ListNode(i + 3);
+		p = p->next;
+	}
+	ListNode* ls2 = new ListNode(9);
+	p = ls2;
+	for (int i = 1; i < 7; i++)
+	{
+		p->next = new ListNode(i);
+		p = p->next;
+	}
+	Solution32 solu;
+	solu.FindFirstCommonNode(ls1, ls2);*/
+
 	//牛客网 丑数
-	Solution30 solu;
-	cout << solu.GetUglyNumber_Solution(16) << endl;
+	/*Solution30 solu;
+	cout << solu.GetUglyNumber_Solution(1500) << "     ";*/
 
 	//牛客网 把数组排成最小的数
 	/*vector<int> nums = { 2,22,21, 3, 321, 32, 341 };

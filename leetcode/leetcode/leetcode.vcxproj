@@ -87,8 +87,11 @@
     <ClInclude Include="FindGreatestSumOfSubarray.h" />
     <ClInclude Include="FindKth2Tail.h" />
     <ClInclude Include="FindPath.h" />
+    <ClInclude Include="FirstCommonNode.h" />
+    <ClInclude Include="FirstNotRepeatingChar.h" />
     <ClInclude Include="GetLeastKnumbers.h" />
     <ClInclude Include="HasSubtree.h" />
+    <ClInclude Include="InversePairs.h" />
     <ClInclude Include="IsPopOrder.h" />
     <ClInclude Include="jumpFloor.h" />
     <ClInclude Include="leethead.h" />

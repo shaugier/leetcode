@@ -98,5 +98,14 @@
     <ClInclude Include="UglyNumber.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FirstCommonNode.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="InversePairs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FirstNotRepeatingChar.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
