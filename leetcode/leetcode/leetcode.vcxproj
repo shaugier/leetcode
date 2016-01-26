@@ -84,6 +84,9 @@
     <ClInclude Include="Clone.h" />
     <ClInclude Include="Convert.h" />
     <ClInclude Include="Count_1.h" />
+    <ClInclude Include="FindContinuousSequence.h" />
+    <ClInclude Include="FindNumberWithSum.h" />
+    <ClInclude Include="FindNumsAppearsOnece.h" />
     <ClInclude Include="FindGreatestSumOfSubarray.h" />
     <ClInclude Include="FindKth2Tail.h" />
     <ClInclude Include="FindPath.h" />
@@ -94,10 +97,13 @@
     <ClInclude Include="HasSubtree.h" />
     <ClInclude Include="InversePairs.h" />
     <ClInclude Include="IsBalanced_Solution.h" />
+    <ClInclude Include="IsContinuous.h" />
     <ClInclude Include="IsPopOrder.h" />
     <ClInclude Include="jumpFloor.h" />
+    <ClInclude Include="LastRemaining_Solution.h" />
     <ClInclude Include="leethead.h" />
     <ClInclude Include="leethead2.h" />
+    <ClInclude Include="LeftRorareString.h" />
     <ClInclude Include="Mirror.h" />
     <ClInclude Include="MoreThanHalfNum.h" />
     <ClInclude Include="Permutation.h" />
@@ -109,6 +115,7 @@
     <ClInclude Include="reOrderArray.h" />
     <ClInclude Include="replaceSpace.h" />
     <ClInclude Include="reverseArray.h" />
+    <ClInclude Include="ReverseSentence.h" />
     <ClInclude Include="stack2queue.h" />
     <ClInclude Include="TreeDepth.h" />
     <ClInclude Include="UglyNumber.h" />

@@ -116,5 +116,26 @@
     <ClInclude Include="IsBalanced_Solution.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FindNumsAppearsOnece.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FindContinuousSequence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="FindNumberWithSum.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LeftRorareString.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="IsContinuous.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverseSentence.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LastRemaining_Solution.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

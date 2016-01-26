@@ -1,4 +1,4 @@
-#include"leethead.h"
+//#include"leethead.h"
 //#include "stack2queue.h"
 //#include"replaceSpace.h"
 //#include"jumpFloor.h"
@@ -26,7 +26,15 @@
 //#include"InversePairs.h"
 //#include"FirstNotRepeatingChar.h"
 //#include"GetNumberOfK.h"
-#include"TreeDepth.h"
+//#include"TreeDepth.h"
+//#include"IsBalanced_Solution.h"
+//#include"FindNumsAppearsOnece.h"
+//#include"FindContinuousSequence.h"
+//#include"FindNumberWithSum.h"
+//#include"LeftRorareString.h"
+#include"IsContinuous.h"
+#include"reverseSentence.h"
+#include"LastRemaining_Solution.h"
 
 
 #define n 10000000
@@ -39,12 +47,56 @@ void main()
 {
 
 	//graph
+	//牛客网 孩子们的游戏（圆圈中最后剩下的数）
+	/*Solution45 solu;
+	solu.LastRemaining_Solution(5, 3);*/
+
+	//牛客网 翻转单词顺序列
+	/*string s = "i am a student";
+	Solution44 solu;
+	cout << solu.ReverseSentence(s) << endl;*/
+
+
+	//牛客网 扑克牌顺子
+	/*Solution42 solu;
+	cout << solu.IsContinuous({ 0, 4, 6, 3, 1 });*/
+
+	//牛客网 左旋转字符串
+	/*Solution41 solu;
+	string ts = "iamgtheworlds";
+	cout << solu.LeftRotateString(ts, 3);*/
+
+
+	//牛客网 和为S的两个数字
+	/*vector<int> sortedArray = { 1, 2, 4, 7, 11, 15 };
+	Solution40 solu;
+	solu.FindNumbersWithSum(sortedArray, 15);*/
+
+	//牛客网 和为S的连续正数序列
+	/*Solution39 solu;
+	solu.FindContinuousSequence(3);*/
+
+	//牛客网 数组中只出现一次的数字
+	/*vector<int> data = { 3, 5, 7, 2, 6, 12, 4, 7, 2, 4, 5, 12 };
+	Solution38 solu;
+	int num1, num2;
+	solu.FindNumsAppearOnce(data, &num1, &num2);
+	cout << num1 << "  " << num2 << endl;*/
+
+	//牛客网 平衡二叉树
+	/*vector<int> a = { 4, 2, 1, 3, 6, 5, 7 };
+	vector<int> b = { 1, 2, 3, 4, 5, 6, 7 };
+	TreeNode * root = reConstructBinaryTree(a, b);
+	Solution37 solu;
+	solu.IsBalanced_Solution(root);*/
+
+
 	//牛客网 二叉树的深度
-	vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
+	/*vector<int> a = { 9, 3, 2, 7, 5, 4, 6, 8, 13, 11, 14, 17 };
 	vector<int> b = { 2, 3, 4, 5, 6, 7, 8, 9, 11, 13, 14, 17 };
 	TreeNode * root = reConstructBinaryTree(a, b);
 	Solution36 solu;
-	cout << solu.TreeDepth(root);
+	cout << solu.TreeDepth(root);*/
 
 
 	//牛客网 数字在排序数组中出现的次数
