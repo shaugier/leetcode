@@ -81,9 +81,13 @@
     <ClCompile Include="leetcode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Add.h" />
     <ClInclude Include="Clone.h" />
     <ClInclude Include="Convert.h" />
     <ClInclude Include="Count_1.h" />
+    <ClInclude Include="DeleteDuplication.h" />
+    <ClInclude Include="duplicate.h" />
+    <ClInclude Include="EntryNodeOfLoop.h" />
     <ClInclude Include="FindContinuousSequence.h" />
     <ClInclude Include="FindNumberWithSum.h" />
     <ClInclude Include="FindNumsAppearsOnece.h" />
@@ -104,9 +108,15 @@
     <ClInclude Include="leethead.h" />
     <ClInclude Include="leethead2.h" />
     <ClInclude Include="LeftRorareString.h" />
+    <ClInclude Include="match.h" />
+    <ClInclude Include="Merge.h" />
     <ClInclude Include="Mirror.h" />
     <ClInclude Include="MoreThanHalfNum.h" />
+    <ClInclude Include="muliply.h" />
+    <ClInclude Include="myMiniStack.h" />
+    <ClInclude Include="NumberOf1.h" />
     <ClInclude Include="Permutation.h" />
+    <ClInclude Include="Power.h" />
     <ClInclude Include="PrintBTreeFromTop2Bottom.h" />
     <ClInclude Include="PrintListReversely.h" />
     <ClInclude Include="PrintMatClockwise.h" />
@@ -115,8 +125,11 @@
     <ClInclude Include="reOrderArray.h" />
     <ClInclude Include="replaceSpace.h" />
     <ClInclude Include="reverseArray.h" />
+    <ClInclude Include="ReverseList.h" />
     <ClInclude Include="ReverseSentence.h" />
     <ClInclude Include="stack2queue.h" />
+    <ClInclude Include="Str2Int.h" />
+    <ClInclude Include="Sum_Solution.h" />
     <ClInclude Include="TreeDepth.h" />
     <ClInclude Include="UglyNumber.h" />
     <ClInclude Include="VerifySequenceOfBST.h" />

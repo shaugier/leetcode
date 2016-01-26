@@ -137,5 +137,44 @@
     <ClInclude Include="LastRemaining_Solution.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Sum_Solution.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Add.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Str2Int.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="duplicate.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="muliply.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="match.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EntryNodeOfLoop.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteDuplication.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NumberOf1.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Power.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverseList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="myMiniStack.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Merge.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

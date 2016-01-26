@@ -32,10 +32,21 @@
 //#include"FindContinuousSequence.h"
 //#include"FindNumberWithSum.h"
 //#include"LeftRorareString.h"
-#include"IsContinuous.h"
-#include"reverseSentence.h"
-#include"LastRemaining_Solution.h"
-
+//#include"IsContinuous.h"
+//#include"reverseSentence.h"
+//#include"LastRemaining_Solution.h"
+//#include"Sum_Solution.h"
+//#include"Add.h"
+//#include"Str2Int.h"
+//#include"duplicate.h"
+#include"muliply.h"
+#include"match.h"
+#include"EntryNodeOfLoop.h"
+#include"DeleteDuplication.h"
+#include"NumberOf1.h"
+#include"Power.h"
+#include"ReverseList.h"
+#include"myMiniStack.h"
 
 #define n 10000000
 #define realN 1000000
@@ -47,9 +58,92 @@ void main()
 {
 
 	//graph
+	//牛客网 合并两个排序的链表
+
+
+	//牛客网 包含min函数的栈
+	/*Solution57 solu;
+	for (int i = 0; i < 10; i++)
+		solu.push(rand() % 100);
+	solu.min();*/
+
+	//牛客网 反转链表
+	/*ListNode* front = new ListNode(1);
+	ListNode* p = front;
+	for (int i = 3; i < 10; i++)
+	{
+		p->next = new ListNode(i / 2);
+		p = p->next;
+	}
+	for (int i = 6; i < 8; i++)
+	{
+		p->next = new ListNode(i);
+		p = p->next;
+	}
+	Solution56 solu;
+	solu.ReverseList(front);*/
+
+
+	//牛客网 数值的整数次方
+	/*Solution55 solu;
+	cout << solu.Power(2, -3);*/
+
+	//牛客网 二进制中1的个数
+	/*Solution54 solu;
+	cout << solu.NumberOf1(8) <<"   "<< solu.NumberOf1(-8) << endl;*/
+
+	//！！逻辑较混乱！！
+	//牛客网 删除链表中重复的结点 
+	/*ListNode* front = new ListNode(1);
+	ListNode* p = front;
+	for (int i = 3; i < 10; i++)
+	{
+		p->next = new ListNode(i/2);
+		p = p->next;
+	}
+	for (int i = 6; i < 8; i++)
+	{
+		p->next = new ListNode(i);
+		p = p->next;
+	}
+	Solution53 solu;
+	solu.deleteDuplication(front);*/
+
+
+	//牛客网 正则表达式匹配    !!  unsolved  !!
+	/*Solution51 solu;
+	solu.match("", ".*");*/
+
+	//牛客网 构建乘积数组
+	/*vector<int> A = { 3, 6, 1, 2, 2, 4, 3, 5, 1 };
+	Solution50 solu;
+	solu.multiply(A);*/
+
+	//牛客网 数组中重复的数字
+	/*int num[5] = { 2, 1, 3, 1, 4 };
+	int length = 5;
+	int *dupli = num;
+	Solution49 solu;
+	cout << solu.duplicate(num, length, dupli) << endl;
+	cout << *dupli << endl;*/
+
+	//牛客网 把字符串转换成整数
+	/*Solution48 solu;
+	cout << solu.StrToInt("+123") - 23 << endl;*/
+	
+	//牛客网 不用加减乘除做加法
+	/*Solution47 solu;
+	cout << solu.Add(8, 9);*/
+
+	//牛客网 求1+2+3+ ...+n
+	/*Solution46 solu;
+	cout<<solu.Sum_Solution(4);
+	cout << solu.res(4);*/
+
 	//牛客网 孩子们的游戏（圆圈中最后剩下的数）
 	/*Solution45 solu;
-	solu.LastRemaining_Solution(5, 3);*/
+	cout << solu.LastRemaining_Solution(18, 5) << endl;
+	cout << solu.LastRemaining_Solution_2(18, 5) << endl;*/
 
 	//牛客网 翻转单词顺序列
 	/*string s = "i am a student";
