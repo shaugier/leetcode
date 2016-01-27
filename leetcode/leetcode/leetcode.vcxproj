@@ -98,6 +98,7 @@
     <ClInclude Include="FirstNotRepeatingChar.h" />
     <ClInclude Include="GetLeastKnumbers.h" />
     <ClInclude Include="GetNumberOfK.h" />
+    <ClInclude Include="HasFath.h" />
     <ClInclude Include="HasSubtree.h" />
     <ClInclude Include="InversePairs.h" />
     <ClInclude Include="IsBalanced_Solution.h" />
@@ -109,9 +110,11 @@
     <ClInclude Include="leethead2.h" />
     <ClInclude Include="LeftRorareString.h" />
     <ClInclude Include="match.h" />
+    <ClInclude Include="MaxInWindows.h" />
     <ClInclude Include="Merge.h" />
     <ClInclude Include="Mirror.h" />
     <ClInclude Include="MoreThanHalfNum.h" />
+    <ClInclude Include="MovingCount.h" />
     <ClInclude Include="muliply.h" />
     <ClInclude Include="myMiniStack.h" />
     <ClInclude Include="NumberOf1.h" />

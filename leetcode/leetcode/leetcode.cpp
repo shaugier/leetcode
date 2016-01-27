@@ -47,6 +47,10 @@
 #include"Power.h"
 #include"ReverseList.h"
 #include"myMiniStack.h"
+#include"Merge.h"
+#include"MaxInWindows.h"
+#include"HasFath.h"
+#include"MovingCount.h"
 
 #define n 10000000
 #define realN 1000000
@@ -58,8 +62,49 @@ void main()
 {
 
 	//graph
-	//牛客网 合并两个排序的链表
+	//牛客网 机器人运动范围
+	Solution61 solu;
+	cout << solu.movingCount(6, 4, 5);
 
+	//牛客网 矩阵中的路径
+	/*char* mat = "ABCESFCSADEE";
+	int r = 3, c = 4;
+	char* snake = "ABCB";
+	Solution60 solu;
+	cout << solu.hasPath(mat, 3, 4, snake);*/
+
+	//牛客网 滑动窗口的最大值
+	/*vector<int> sequence = { 4, 3, 1, 2, 6, 2, 5, 1 };
+	Solution59 solu;
+	solu.maxInWindows(sequence, 3);*/
+
+	//牛客网 合并两个排序的链表
+	/*ListNode* front = new ListNode(1);
+	ListNode* p = front;
+	for (int i = 3; i < 10; i++)
+	{
+		p->next = new ListNode(i / 2);
+		p = p->next;
+	}
+	for (int i = 6; i < 8; i++)
+	{
+		p->next = new ListNode(i);
+		p = p->next;
+	}
+	ListNode* back = new ListNode(0);
+	p = back;
+	for (int i = 3; i < 7; i++)
+	{
+		p->next = new ListNode(i);
+		p = p->next;
+	}
+	for (int i = 9; i < 12; i++)
+	{
+		p->next = new ListNode(i);
+		p = p->next;
+	}
+	Solution58 solu;
+	solu.Merge(front, back);*/
 
 	//牛客网 包含min函数的栈
 	/*Solution57 solu;

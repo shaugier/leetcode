@@ -176,5 +176,14 @@
     <ClInclude Include="Merge.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="MaxInWindows.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="HasFath.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="MovingCount.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
