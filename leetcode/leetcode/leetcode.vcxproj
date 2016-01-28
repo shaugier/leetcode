@@ -94,6 +94,7 @@
     <ClInclude Include="FindGreatestSumOfSubarray.h" />
     <ClInclude Include="FindKth2Tail.h" />
     <ClInclude Include="FindPath.h" />
+    <ClInclude Include="FirstAppearingOnce.h" />
     <ClInclude Include="FirstCommonNode.h" />
     <ClInclude Include="FirstNotRepeatingChar.h" />
     <ClInclude Include="GetLeastKnumbers.h" />
@@ -103,6 +104,7 @@
     <ClInclude Include="InversePairs.h" />
     <ClInclude Include="IsBalanced_Solution.h" />
     <ClInclude Include="IsContinuous.h" />
+    <ClInclude Include="isNumeric.h" />
     <ClInclude Include="IsPopOrder.h" />
     <ClInclude Include="jumpFloor.h" />
     <ClInclude Include="LastRemaining_Solution.h" />
@@ -125,6 +127,7 @@
     <ClInclude Include="PrintMatClockwise.h" />
     <ClInclude Include="PrintMinNumber.h" />
     <ClInclude Include="recCover.h" />
+    <ClInclude Include="RegularMatch.h" />
     <ClInclude Include="reOrderArray.h" />
     <ClInclude Include="replaceSpace.h" />
     <ClInclude Include="reverseArray.h" />

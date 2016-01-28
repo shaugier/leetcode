@@ -16,7 +16,7 @@
 //#include"Clone.h"
 //#include"FindPath.h"
 //#include"Convert.h"
-//#include"Permutation.h"
+#include"Permutation.h"
 //#include"MoreThanHalfNum.h"
 //#include"FindGreatestSumOfSubarray.h"
 //#include"Count_1.h"
@@ -39,18 +39,21 @@
 //#include"Add.h"
 //#include"Str2Int.h"
 //#include"duplicate.h"
-#include"muliply.h"
-#include"match.h"
-#include"EntryNodeOfLoop.h"
-#include"DeleteDuplication.h"
-#include"NumberOf1.h"
-#include"Power.h"
-#include"ReverseList.h"
-#include"myMiniStack.h"
-#include"Merge.h"
-#include"MaxInWindows.h"
-#include"HasFath.h"
-#include"MovingCount.h"
+//#include"muliply.h"
+//#include"match.h"
+//#include"EntryNodeOfLoop.h"
+//#include"DeleteDuplication.h"
+//#include"NumberOf1.h"
+//#include"Power.h"
+//#include"ReverseList.h"
+//#include"myMiniStack.h"
+//#include"Merge.h"
+//#include"MaxInWindows.h"
+//#include"HasFath.h"
+//#include"MovingCount.h"
+//#include"FirstAppearingOnce.h"
+//#include"isNumeric.h"
+#include"RegularMatch.h"
 
 #define n 10000000
 #define realN 1000000
@@ -62,9 +65,35 @@ void main()
 {
 
 	//graph
+	//牛客网 正则表达式匹配  
+	//老子鄙视这道题！！！！
+	Solution64 solu;
+	cout << solu.match3("ba", ".*") << endl;
+
+	/*string str = "b";
+	regex reg("a*b");
+	cout << regex_match(str, reg) << endl;*/
+
+	//string str = "abc";
+	//regex reg("[^]abc"); // [^]匹配任意一个字符
+	//cout << regex_match(str,reg);
+
+	//牛客网 表示数值的字符串
+	/*char* chs = "3.14159";
+	Solution63 solu;
+	cout << solu.isNumeric(chs) << endl;*/
+
+	//牛客网 字符流中第一个不重复的字符
+	/*Solution62 solu;
+	string str = "goog";
+	int k = 0;
+	while (k < str.size())
+		solu.Insert(str[k++]);
+	cout << solu.FirstAppearingOnce() << endl;*/
+
 	//牛客网 机器人运动范围
-	Solution61 solu;
-	cout << solu.movingCount(6, 4, 5);
+	/*Solution61 solu;
+	cout << solu.movingCount(6, 4, 5);*/
 
 	//牛客网 矩阵中的路径
 	/*char* mat = "ABCESFCSADEE";
@@ -155,7 +184,7 @@ void main()
 	solu.deleteDuplication(front);*/
 
 
-	//牛客网 正则表达式匹配    !!  unsolved  !!
+	//牛客网 正则表达式匹配    !! equal to Solution64  !!
 	/*Solution51 solu;
 	solu.match("", ".*");*/
 
@@ -299,9 +328,9 @@ void main()
 
 
 	//牛客网 字符串的排列 unsolved !!!
-	/*string s = "abccd";
+	/*string s = "abcd";
 	Solution25 solu;
-	solu.Permutation(s);*/
+	solu.permutation2(s);*/
 
 
 	//牛客网 二叉搜索树转换成双向链表

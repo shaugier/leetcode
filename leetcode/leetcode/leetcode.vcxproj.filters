@@ -185,5 +185,14 @@
     <ClInclude Include="MovingCount.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="FirstAppearingOnce.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="isNumeric.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="RegularMatch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

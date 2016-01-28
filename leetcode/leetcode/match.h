@@ -1,6 +1,6 @@
 #include"leethead2.h"
 
-//unsolved!!
+//this is equal to RegularMatch.h
 class Solution51 {
 public:
 	bool match(char* str, char* pattern)
